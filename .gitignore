@@ -1,0 +1,11 @@
+.vs/
+lib/
+bin/
+zbin/
+obj/
+*.user
+launchSettings.json
+artifacts/
+msbuild.binlog
+.vscode/
+packages/
