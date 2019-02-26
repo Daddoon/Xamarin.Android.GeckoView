@@ -42,11 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ChunkExtractorWrapper.cs" />
+    <Compile Include="Classes\ClippingMediaPeriod.cs" />
     <Compile Include="Classes\DrmInitData.cs" />
     <Compile Include="Classes\Mp4WebvttDecoder.cs" />
     <Compile Include="Classes\DvbDecoder.cs" />
+    <Compile Include="Classes\Segment.cs" />
     <Compile Include="Classes\SubtitleInputBuffer.cs" />
-    <Compile Include="Classes\SubtitleOutputBufferInvoker.cs" />
     <Compile Include="Classes\TtmlDecoder.cs" />
     <Compile Include="Classes\SubripDecoder.cs" />
     <Compile Include="Classes\Tx3gDecoder.cs" />

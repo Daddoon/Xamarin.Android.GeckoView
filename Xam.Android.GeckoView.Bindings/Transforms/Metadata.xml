@@ -39,6 +39,9 @@
   <attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='Mp4WebvttDecoder']/method[@name='decode']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='Mp4WebvttDecoder']/method[@name='decode']" name="managedName">DecodeMp4WebvttSubtitle</attr>
 
+  <!-- WebvttSubtitle -->
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='WebvttSubtitle']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='WebvttSubtitle']" name="obfuscated">false</attr>
 
   <attr path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='createInputBuffer']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='createInputBuffer']" name="managedName">CreateInputBufferBase</attr>
@@ -62,5 +65,7 @@
 
   <!-- SubtitleOutputBufferInvoker -->
   <attr path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SubtitleOutputBuffer']/method[@name='release']" name="managedName">ReleaseSubtitleOutputBuffer</attr>
+
+  <attr path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='HlsMediaPlaylist.Segment']/method[@name='compareTo' and count(parameter)=1 and parameter[1][@type='java.lang.Long']]" name="managedName">CompareToLong</attr>
 
 </metadata>
