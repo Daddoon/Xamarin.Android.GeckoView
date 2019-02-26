@@ -1,11 +1,11 @@
 ﻿
-namespace Com.Google.Android.Exoplayer2.Text.Dvb
+namespace Com.Google.Android.Exoplayer2.Text.Ttml
 {
-    public sealed partial class DvbDecoder
+    public sealed partial class TtmlDecoder
     {
         protected override ISubtitle Decode(byte[] p0, int p1, bool p2)
         {
-            return DecodeDvbSubtitle(p0, p1, p2);
+            return DecodeTtmlSubtitle(p0, p1, p2);
         }
 
         protected override Java.Lang.Object Decode(Java.Lang.Object p0, Java.Lang.Object p1, bool p2)

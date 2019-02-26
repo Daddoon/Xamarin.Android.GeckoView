@@ -43,7 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\DrmInitData.cs" />
+    <Compile Include="Classes\Mp4WebvttDecoder.cs" />
     <Compile Include="Classes\DvbDecoder.cs" />
+    <Compile Include="Classes\SubtitleInputBuffer.cs" />
+    <Compile Include="Classes\TtmlDecoder.cs" />
+    <Compile Include="Classes\SubripDecoder.cs" />
+    <Compile Include="Classes\Tx3gDecoder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

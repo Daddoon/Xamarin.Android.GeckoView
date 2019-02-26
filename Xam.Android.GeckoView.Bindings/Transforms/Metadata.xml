@@ -7,16 +7,53 @@
   <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
   -->
 
+  <!-- DvbSubtitle -->
   <attr path="/api/package[@name='com.google.android.exoplayer2.text.dvb']/class[@name='DvbSubtitle']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer2.text.dvb']/class[@name='DvbSubtitle']" name="obfuscated">false</attr>
-  
+
+  <!-- DvbDecoder -->
   <attr path="/api/package[@name='com.google.android.exoplayer2.text.dvb']/class[@name='DvbDecoder']/method[@name='decode']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer2.text.dvb']/class[@name='DvbDecoder']/method[@name='decode']" name="managedName">DecodeDvbSubtitle</attr>
+
+  <!-- TtmlSubtitle -->
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.ttml']/class[@name='TtmlSubtitle']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.ttml']/class[@name='TtmlSubtitle']" name="obfuscated">false</attr>
+
+  <!-- TtmlDecoder -->
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.ttml']/class[@name='TtmlDecoder']/method[@name='decode']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.ttml']/class[@name='TtmlDecoder']/method[@name='decode']" name="managedName">DecodeTtmlSubtitle</attr>
+
+  <!-- SubripSubtitle -->
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.subrip']/class[@name='SubripSubtitle']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.subrip']/class[@name='SubripSubtitle']" name="obfuscated">false</attr>
+
+  <!-- SubripDecoder -->
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.subrip']/class[@name='SubripDecoder']/method[@name='decode']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.subrip']/class[@name='SubripDecoder']/method[@name='decode']" name="managedName">DecodeSubripSubtitle</attr>
+
+  <!-- Mp4WebvttSubtitle -->
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='Mp4WebvttSubtitle']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='Mp4WebvttSubtitle']" name="obfuscated">false</attr>
+
+  <!-- Mp4WebvttDecoder -->
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='Mp4WebvttDecoder']/method[@name='decode']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='Mp4WebvttDecoder']/method[@name='decode']" name="managedName">DecodeMp4WebvttSubtitle</attr>
+
 
   <attr path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='createInputBuffer']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='createInputBuffer']" name="managedName">CreateInputBufferBase</attr>
 
   <attr path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='createOutputBuffer']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='createOutputBuffer']" name="managedName">CreateOutputBufferBase</attr>
+
+  <attr path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onRenderedFirstFrame']" name="eventName">RenderedFirstFrame_VideoListener</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onVideoSizeChanged']" name="eventName">VideoSizeChanged_VideoListener</attr>
+
+  <attr path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onRenderedFirstFrame']" name="eventName">RenderedFirstFrame_VideoRendererListener</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onVideoSizeChanged']" name="eventName">VideoSizeChanged_VideoRendererListener</attr>
+
+  <!-- BaseMediaChunkOutput -->
+  <attr path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/class[@name='BaseMediaChunkOutput']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/class[@name='BaseMediaChunkOutput']" name="obfuscated">false</attr>
 
 </metadata>
