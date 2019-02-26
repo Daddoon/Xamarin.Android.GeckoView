@@ -56,4 +56,11 @@
   <attr path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/class[@name='BaseMediaChunkOutput']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/class[@name='BaseMediaChunkOutput']" name="obfuscated">false</attr>
 
+  <!-- SubtitleOutputBufferInvoker -->
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SubtitleOutputBuffer']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SubtitleOutputBuffer']" name="obfuscated">false</attr>
+
+  <!-- SubtitleOutputBufferInvoker -->
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SubtitleOutputBuffer']/method[@name='release']" name="managedName">ReleaseSubtitleOutputBuffer</attr>
+
 </metadata>
