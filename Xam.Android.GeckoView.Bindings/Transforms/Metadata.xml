@@ -43,6 +43,14 @@
   <attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='WebvttSubtitle']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='WebvttSubtitle']" name="obfuscated">false</attr>
 
+  <!-- WebvttDecoder -->
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='WebvttDecoder']/method[@name='decode']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='WebvttDecoder']/method[@name='decode']" name="managedName">DecodeWebvttSubtitle</attr>
+
+  <!-- WebvttCue -->
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='WebvttCue']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='WebvttCue']" name="obfuscated">false</attr>
+
   <attr path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='createInputBuffer']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='createInputBuffer']" name="managedName">CreateInputBufferBase</attr>
 
@@ -68,4 +76,28 @@
 
   <attr path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='HlsMediaPlaylist.Segment']/method[@name='compareTo' and count(parameter)=1 and parameter[1][@type='java.lang.Long']]" name="managedName">CompareToLong</attr>
 
+  <!-- DefaultHttpDataSourceFactory -->
+  <!--<attr path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultHttpDataSourceFactory']/method[@name='createDataSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.HttpDataSource.RequestProperties']]" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultHttpDataSourceFactory']/method[@name='createDataSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.HttpDataSource.RequestProperties']]" name="managedName">CreateDataSourceInternalBase</attr>-->
+
+  <!-- HttpDataSourceBaseFactory -->
+  <!--<attr path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='HttpDataSource.BaseFactory']/method[@name='createDataSource' and count(parameter)=0]" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='HttpDataSource.BaseFactory']/method[@name='createDataSource' and count(parameter)=0]" name="managedName">CreateDataSourceBase</attr>-->
+
+  <!-- HttpDataSource$Factory -->
+  <remove-node path="/api/package[@name='com.google.android.exoplayer2.upstream']/*" />
+
+  <!-- GeckoSession -->
+  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.SelectionActionDelegate']" name="name">SelectionActionDelegateClass</attr>
+  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.PromptDelegate']" name="name">PromptDelegateClass</attr>
+  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.TrackingProtectionDelegate']" name="name">TrackingProtectionDelegateClass</attr>
+  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.PermissionDelegate']" name="name">PermissionDelegateClass</attr>
+  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.NavigationDelegate']" name="name">NavigationDelegateClass</attr>
+  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.HistoryDelegate']" name="name">HistoryDelegateClass</attr>
+
+
+  <!--<remove-node path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.SelectionActionDelegate']/*" />-->
+  
+  
+  
 </metadata>

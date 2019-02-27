@@ -42,16 +42,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AdaptiveTrackSelection.cs" />
+    <Compile Include="Classes\CacheDataSourceFactory.cs" />
+    <Compile Include="Classes\CacheSpan.cs" />
+    <Compile Include="Classes\CeaOutputBuffer.cs" />
     <Compile Include="Classes\ChunkExtractorWrapper.cs" />
     <Compile Include="Classes\ClippingMediaPeriod.cs" />
+    <Compile Include="Classes\DefaultDataSourceFactory.cs" />
+    <Compile Include="Classes\DefaultHttpDataSourceFactory.cs" />
     <Compile Include="Classes\DrmInitData.cs" />
+    <Compile Include="Classes\FixedTrackSelection.cs" />
+    <Compile Include="Classes\HttpDataSourceBaseFactory.cs" />
+    <Compile Include="Classes\IHttpDataSourceFactoryInvoker.cs" />
+    <Compile Include="Classes\LeastRecentlyUsedCacheEvictor.cs" />
     <Compile Include="Classes\Mp4WebvttDecoder.cs" />
     <Compile Include="Classes\DvbDecoder.cs" />
+    <Compile Include="Classes\RandomTrackSelection.cs" />
     <Compile Include="Classes\Segment.cs" />
     <Compile Include="Classes\SubtitleInputBuffer.cs" />
     <Compile Include="Classes\TtmlDecoder.cs" />
     <Compile Include="Classes\SubripDecoder.cs" />
     <Compile Include="Classes\Tx3gDecoder.cs" />
+    <Compile Include="Classes\WebvttDecoder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
