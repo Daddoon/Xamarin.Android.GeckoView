@@ -106,4 +106,6 @@
 
   <remove-node path="/api/package[@name='org.mozilla.gecko']/class[@name='GeckoAppShell']/method[@name='setWakeLockDelegate' and count(parameter)=1 and parameter[1][@type='org.mozilla.gecko.WakeLockDelegate']]" />
 
+  <!--<remove-node path="/api/package[@name='org.mozilla.geckoview']/interface[@name='SessionTextInput.EditableListener']/constructor[@name='SessionTextInput.EditableListener']" />-->
+  <remove-node path="/api/package[@name='org.mozilla.geckoview']/class[@name='SessionTextInput']" />
 </metadata>

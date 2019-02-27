@@ -3,6 +3,8 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Runtime;
 using Android.Widget;
+using Org.Mozilla.Geckoview;
+using Android;
 
 namespace Xam.Android.GeckoView
 {
@@ -13,7 +15,18 @@ namespace Xam.Android.GeckoView
         {
             base.OnCreate(savedInstanceState);
             // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.activity_main);
+            SetContentView(Resource.Layout.activity_geckoview);
+
+            Org.Mozilla.Geckoview.GeckoView view = (Org.Mozilla.Geckoview.GeckoView)FindViewById(Resource.Id.geckoview);
+            GeckoSession session = new GeckoSession();
+            GeckoRuntime runtime = GeckoRuntime.Create(this);
+
+            session.Open(runtime);
+            view.SetSession(session, runtime);
+
+            //session.LoadUri("about:buildconfig"); // Or any other URL...
+            //session.LoadUri("https://www.google.fr"); // Or any other URL...
+            session.LoadUri("https://lupblazorclockcanvas.z20.web.core.windows.net/"); // Or any other URL...
         }
     }
 }
