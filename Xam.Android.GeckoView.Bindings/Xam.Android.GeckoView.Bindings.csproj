@@ -51,6 +51,7 @@
     <Compile Include="Classes\DefaultDataSourceFactory.cs" />
     <Compile Include="Classes\DefaultHttpDataSourceFactory.cs" />
     <Compile Include="Classes\DrmInitData.cs" />
+    <Compile Include="Classes\FileUtils.cs" />
     <Compile Include="Classes\FixedTrackSelection.cs" />
     <Compile Include="Classes\HttpDataSourceBaseFactory.cs" />
     <Compile Include="Classes\IHttpDataSourceFactoryInvoker.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Classes\SubripDecoder.cs" />
     <Compile Include="Classes\Tx3gDecoder.cs" />
     <Compile Include="Classes\WebvttDecoder.cs" />
+    <Compile Include="Classes\Window.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

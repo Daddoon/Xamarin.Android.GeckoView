@@ -96,8 +96,14 @@
   <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.HistoryDelegate']" name="name">HistoryDelegateClass</attr>
 
 
-  <!--<remove-node path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.SelectionActionDelegate']/*" />-->
-  
-  
-  
+  <attr path="/api/package[@name='org.mozilla.geckoview']/class[@name='GeckoSession.Window']/method[@name='disposeNative' and count(parameter)=0]" name="visibility">protected</attr>
+
+  <remove-node path="/api/package[@name='com.google.android.exoplayer2.audio']/class[@name='SimpleDecoderAudioRenderer']/method[@name='render' and count(parameter)=2 and parameter[1][@type='long'] and parameter[2][@type='long']]" />
+  <remove-node path="/api/package[@name='com.google.android.exoplayer2.mediacodec']/class[@name='MediaCodecRenderer']/method[@name='render' and count(parameter)=2 and parameter[1][@type='long'] and parameter[2][@type='long']]" />
+  <remove-node path="/api/package[@name='com.google.android.exoplayer2.metadata']/class[@name='MetadataRenderer']/method[@name='render' and count(parameter)=2 and parameter[1][@type='long'] and parameter[2][@type='long']]" />
+  <remove-node path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='TextRenderer']/method[@name='render' and count(parameter)=2 and parameter[1][@type='long'] and parameter[2][@type='long']]" />
+  <remove-node path="/api/package[@name='org.mozilla.gecko.media']/class[@name='GeckoHlsRendererBase']/method[@name='render' and count(parameter)=2 and parameter[1][@type='long'] and parameter[2][@type='long']]" />
+
+  <remove-node path="/api/package[@name='org.mozilla.gecko']/class[@name='GeckoAppShell']/method[@name='setWakeLockDelegate' and count(parameter)=1 and parameter[1][@type='org.mozilla.gecko.WakeLockDelegate']]" />
+
 </metadata>
