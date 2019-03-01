@@ -33,7 +33,7 @@ namespace Org.Mozilla.Gecko
 
         #region Properties
 
-        public GeckoSession GeckoSession
+        public GeckoSession Session
         {
             get
             {
@@ -41,7 +41,7 @@ namespace Org.Mozilla.Gecko
             }
         }
 
-        public GeckoRuntime GeckoRuntime
+        public GeckoRuntime Runtime
         {
             get
             {
@@ -49,7 +49,9 @@ namespace Org.Mozilla.Gecko
             }
         }
 
-        public GeckoView GeckoView
+        public GeckoRuntimeSettings Settings => Runtime.Settings;
+
+        public GeckoView View
         {
             get
             {
@@ -58,7 +60,6 @@ namespace Org.Mozilla.Gecko
         }
 
         #endregion Properties
-
 
         /// <summary>
         /// Load the given URI.
@@ -138,6 +139,56 @@ namespace Org.Mozilla.Gecko
         public virtual void LoadData(byte[] bytes, string mimeType)
         {
             _session.LoadData(bytes, mimeType);
+        }
+
+        /// <summary>
+        /// Stop loading.
+        /// </summary>
+        public virtual void Stop()
+        {
+            _session.Stop();
+        }
+
+        /// <summary>
+        /// Reload the current URI.
+        /// </summary>
+        public virtual void Reload()
+        {
+            _session.Reload();
+        }
+
+        /// <summary>
+        /// Restore a saved state to this GeckoSession; only data that is saved (history, scroll position, zoom, and form data) will be restored.
+        /// </summary>
+        /// <param name="sessionState"></param>
+        public virtual void RestoreState(SessionState sessionState)
+        {
+            _session.RestoreState(sessionState);
+        }
+
+        /// <summary>
+        /// Save the current browsing session state of this GeckoSession.
+        /// WARNING from Xamarin.GeckoView: Not yet tested
+        /// </summary>
+        /// <returns></returns>
+        public virtual Task<SessionState> SaveState()
+        {
+            TaskCompletionSource<SessionState> tcs = new TaskCompletionSource<SessionState>();
+
+            try
+            {
+                var onSuccess = new GeckoResultOnValueListener<SessionState>(tcs);
+                var onError = new GeckoResultOnExceptionListener<SessionState>(tcs);
+
+                var data = _session.SaveState();
+                data.Then(onSuccess, onError);
+            }
+            catch (Exception ex)
+            {
+                tcs.SetException(ex);
+            }
+
+            return tcs.Task;
         }
 
         #region Event Handlers

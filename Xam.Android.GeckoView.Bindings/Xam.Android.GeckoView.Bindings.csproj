@@ -67,6 +67,8 @@
     <Compile Include="Classes\WebvttDecoder.cs" />
     <Compile Include="Classes\Window.cs" />
     <Compile Include="Facade\GeckoViewManaged.cs" />
+    <Compile Include="Handlers\GeckoResultOnExceptionListener.cs" />
+    <Compile Include="Handlers\GeckoResultOnValueListener.cs" />
     <Compile Include="Handlers\ScrollDelegate.cs" />
     <Compile Include="Handlers\ContentDelegate.cs" />
     <Compile Include="Handlers\MediaDelegate.cs" />
