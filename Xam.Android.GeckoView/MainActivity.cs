@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.Widget;
 using Org.Mozilla.Geckoview;
 using Android;
+using Org.Mozilla.Gecko;
 
 namespace Xam.Android.GeckoView
 {
@@ -20,13 +21,15 @@ namespace Xam.Android.GeckoView
             Org.Mozilla.Geckoview.GeckoView view = (Org.Mozilla.Geckoview.GeckoView)FindViewById(Resource.Id.geckoview);
             GeckoSession session = new GeckoSession();
             GeckoRuntime runtime = GeckoRuntime.Create(this);
-
             session.Open(runtime);
             view.SetSession(session, runtime);
 
-            //session.LoadUri("about:buildconfig"); // Or any other URL...
+            MyGeckoView managed = new MyGeckoView(view, session, runtime);
+
+            managed.LoadUri("https://www.google.fr"); // Or any other URL...
+
             //session.LoadUri("https://www.google.fr"); // Or any other URL...
-            session.LoadUri("https://lupblazorclockcanvas.z20.web.core.windows.net/"); // Or any other URL...
+            //managed.LoadUri("https://lupblazorclockcanvas.z20.web.core.windows.net/"); // Or any other URL...
         }
     }
 }

@@ -11,4 +11,80 @@
     <field jni-name="Fragment_tag" clr-name="Tag" value="2" />
   </mapping>
   -->
+
+  <mapping jni-class="org/mozilla/geckoview/GeckoSession" clr-enum-type="Org.Mozilla.Geckoview.FinderDisplayEnum">
+    <field jni-name="FINDER_DISPLAY_HIGHLIGHT_ALL" clr-name="HighlightAll" value="1" />
+    <field jni-name="FINDER_DISPLAY_DIM_PAGE" clr-name="DimPage" value="2" />
+    <field jni-name="FINDER_DISPLAY_DRAW_LINK_OUTLINE" clr-name="DrawLinkOutline" value="4" />
+  </mapping>
+
+  <mapping jni-class="org/mozilla/geckoview/GeckoSession" clr-enum-type="Org.Mozilla.Geckoview.FinderFindEnum">
+    <field jni-name="FINDER_FIND_BACKWARDS" clr-name="Backwards" value="1" />
+    <field jni-name="FINDER_FIND_MATCH_CASE" clr-name="MatchCase" value="2" />
+    <field jni-name="FINDER_FIND_WHOLE_WORD" clr-name="WholeWord" value="4" />
+    <field jni-name="FINDER_FIND_LINKS_ONLY" clr-name="LinksOnly" value="8" />
+  </mapping>
+
+  <mapping jni-class="org/mozilla/geckoview/GeckoSession" clr-enum-type="Org.Mozilla.Geckoview.LoadFlagsEnum">
+    <field jni-name="LOAD_FLAGS_NONE" clr-name="None" value="0" />
+    <field jni-name="LOAD_FLAGS_BYPASS_CACHE" clr-name="ByPassCache" value="1" />
+    <field jni-name="LOAD_FLAGS_BYPASS_PROXY" clr-name="ByPassProxy" value="2" />
+    <field jni-name="LOAD_FLAGS_EXTERNAL" clr-name="External" value="4" />
+    <field jni-name="LOAD_FLAGS_ALLOW_POPUPS" clr-name="AllowPopups" value="8" />
+    <field jni-name="LOAD_FLAGS_BYPASS_CLASSIFIER" clr-name="ByPassClassifier" value="16" />
+  </mapping>
+
+  <mapping jni-class="org/mozilla/geckoview/GeckoSession" clr-enum-type="Org.Mozilla.Geckoview.SourceEnum">
+    <field jni-name="SOURCE_CAMERA" clr-name="Camera" value="0" />
+    <field jni-name="SOURCE_SCREEN" clr-name="Screen" value="1" />
+    <field jni-name="SOURCE_APPLICATION" clr-name="Application" value="2" />
+    <field jni-name="SOURCE_WINDOW" clr-name="Window" value="3" />
+    <field jni-name="SOURCE_BROWSER" clr-name="Browser" value="4" />
+    <field jni-name="SOURCE_MICROPHONE" clr-name="Microphone" value="5" />
+    <field jni-name="SOURCE_AUDIOCAPTURE" clr-name="AudioCapture" value="6" />
+    <field jni-name="SOURCE_OTHER" clr-name="Other" value="7" />
+  </mapping>
+
+  <mapping jni-class="org/mozilla/geckoview/GeckoSession" clr-enum-type="Org.Mozilla.Geckoview.SourceMediaTypeEnum">
+    <field jni-name="TYPE_VIDEO" clr-name="Video" value="0" />
+    <field jni-name="TYPE_AUDIO" clr-name="Audio" value="1" />
+  </mapping>
+
+  <mapping jni-class="org/mozilla/geckoview/GeckoSession" clr-enum-type="Org.Mozilla.Geckoview.AuthFlagEnum">
+    <field jni-name="AUTH_FLAG_HOST" clr-name="Host" value="1" />
+    <field jni-name="AUTH_FLAG_PROXY" clr-name="Proxy" value="2" />
+    <field jni-name="AUTH_FLAG_ONLY_PASSWORD" clr-name="OnlyPassword" value="8" />
+    <field jni-name="AUTH_FLAG_PREVIOUS_FAILED" clr-name="PreviousFailed" value="16" />
+    <field jni-name="AUTH_FLAG_CROSS_ORIGIN_SUB_RESOURCE" clr-name="CrossOriginSubResource" value="32" />
+  </mapping>
+
+  <mapping jni-class="org/mozilla/geckoview/GeckoSession" clr-enum-type="Org.Mozilla.Geckoview.AuthLevelEnum">
+    <field jni-name="AUTH_LEVEL_NONE" clr-name="None" value="0" />
+    <field jni-name="AUTH_LEVEL_PW_ENCRYPTED" clr-name="PasswordEncrypted" value="1" />
+    <field jni-name="AUTH_LEVEL_SECURE" clr-name="Secure" value="2" />
+  </mapping>
+
+  <mapping jni-class="org/mozilla/geckoview/GeckoSession" clr-enum-type="Org.Mozilla.Geckoview.ChoiceTypeEnum">
+    <field jni-name="CHOICE_TYPE_MENU" clr-name="Menu" value="1" />
+    <field jni-name="CHOICE_TYPE_SINGLE" clr-name="Single" value="2" />
+    <field jni-name="CHOICE_TYPE_MULTIPLE" clr-name="Multiple" value="3" />
+  </mapping>
+
+  <mapping jni-class="org/mozilla/geckoview/GeckoSession" clr-enum-type="Org.Mozilla.Geckoview.AutoFillEnum">
+    <field jni-name="AUTO_FILL_NOTIFY_STARTED" clr-name="Started" value="0" />
+    <field jni-name="AUTO_FILL_NOTIFY_COMMITTED" clr-name="Committed" value="1" />
+    <field jni-name="AUTO_FILL_NOTIFY_CANCELED" clr-name="Canceled" value="2" />
+    <field jni-name="AUTO_FILL_NOTIFY_VIEW_ADDED" clr-name="ViewAdded" value="3" />
+    <field jni-name="AUTO_FILL_NOTIFY_VIEW_REMOVED" clr-name="ViewRemoved" value="4" />
+    <field jni-name="AUTO_FILL_NOTIFY_VIEW_UPDATED" clr-name="ViewUpdated" value="5" />
+    <field jni-name="AUTO_FILL_NOTIFY_VIEW_ENTERED" clr-name="ViewEntered" value="6" />
+    <field jni-name="AUTO_FILL_NOTIFY_VIEW_EXITED" clr-name="ViewExited" value="7" />
+  </mapping>
+
+  <mapping jni-class="org/mozilla/geckoview/GeckoSession" clr-enum-type="Org.Mozilla.Geckoview.RestartReasonEnum">
+    <field jni-name="RESTART_REASON_FOCUS" clr-name="Focus" value="0" />
+    <field jni-name="RESTART_REASON_BLUR" clr-name="Blur" value="1" />
+    <field jni-name="RESTART_REASON_CONTENT_CHANGE" clr-name="ContentChange" value="2" />
+  </mapping>
+
 </enum-field-mappings>

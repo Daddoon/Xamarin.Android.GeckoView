@@ -66,6 +66,11 @@
     <Compile Include="Classes\Tx3gDecoder.cs" />
     <Compile Include="Classes\WebvttDecoder.cs" />
     <Compile Include="Classes\Window.cs" />
+    <Compile Include="Facade\GeckoViewManaged.cs" />
+    <Compile Include="Handlers\ScrollDelegate.cs" />
+    <Compile Include="Handlers\ContentDelegate.cs" />
+    <Compile Include="Handlers\MediaDelegate.cs" />
+    <Compile Include="Handlers\ProgressDelegate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
