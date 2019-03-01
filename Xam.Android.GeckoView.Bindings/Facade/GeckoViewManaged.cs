@@ -59,9 +59,85 @@ namespace Org.Mozilla.Gecko
 
         #endregion Properties
 
+
+        /// <summary>
+        /// Load the given URI.
+        /// </summary>
+        /// <param name="uri"></param>
         public virtual void LoadUri(string uri)
         {
             _session.LoadUri(uri);
+        }
+
+        /// <summary>
+        /// Load the given URI with the specified referrer and load type.
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <param name="flags"></param>
+        public virtual void LoadUri(string uri, int flags)
+        {
+            _session.LoadUri(uri, flags);
+        }
+
+        /// <summary>
+        /// Load the given URI with the specified referrer and load type.
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <param name="flags"></param>
+        public virtual void LoadUri(string uri, string referrer, int flags)
+        {
+            _session.LoadUri(uri, referrer, flags);
+        }
+
+        /// <summary>
+        /// Load the given URI.
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <param name="flags"></param>
+        public virtual void LoadUri(Uri uri)
+        {
+            _session.LoadUri(Android.Net.Uri.Parse(uri.ToString()));
+        }
+
+        /// <summary>
+        /// Load the given URI with the specified referrer and load type.
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <param name="flags"></param>
+        public virtual void LoadUri(Uri uri, int flags)
+        {
+            _session.LoadUri(Android.Net.Uri.Parse(uri.ToString()), flags);
+        }
+
+        /// <summary>
+        /// Load the given URI with the specified referrer and load type.
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <param name="flags"></param>
+        public virtual void LoadUri(Uri uri, Uri referrer, int flags)
+        {
+            _session.LoadUri(Android.Net.Uri.Parse(uri.ToString()), Android.Net.Uri.Parse(referrer.ToString()), flags);
+        }
+
+        /// <summary>
+        /// Load the specified String data.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="mimeType"></param>
+        public virtual void LoadString(string data, string mimeType)
+        {
+            _session.LoadString(data, mimeType);
+        }
+
+
+        /// <summary>
+        /// Load the specified bytes.
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <param name="mimeType"></param>
+        public virtual void LoadData(byte[] bytes, string mimeType)
+        {
+            _session.LoadData(bytes, mimeType);
         }
 
         #region Event Handlers
