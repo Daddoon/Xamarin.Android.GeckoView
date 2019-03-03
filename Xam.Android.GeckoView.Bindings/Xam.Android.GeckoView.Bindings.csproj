@@ -58,6 +58,8 @@
     <Compile Include="Classes\LeastRecentlyUsedCacheEvictor.cs" />
     <Compile Include="Classes\Mp4WebvttDecoder.cs" />
     <Compile Include="Classes\DvbDecoder.cs" />
+    <Compile Include="Classes\Org\Mozilla\GeckoView\ContentBlocking.cs" />
+    <Compile Include="Classes\Org\Mozilla\GeckoView\RuntimeSettings.cs" />
     <Compile Include="Classes\RandomTrackSelection.cs" />
     <Compile Include="Classes\Segment.cs" />
     <Compile Include="Classes\SubtitleInputBuffer.cs" />
@@ -78,7 +80,8 @@
   <ItemGroup>
     <None Include="Jars\AboutJars.txt" />
     <None Include="Additions\AboutAdditions.txt" />
-    <LibraryProjectZip Include="Jars\geckoview-x86-65.0.20190214163019.aar" />
+    <LibraryProjectZip Include="Jars\geckoview-nightly-try-67.0.20190228011332.aar" />
+    <JavaDocJar Include="JavaDocs\geckoview-nightly-try-67.0.20190228011332-javadoc.jar" />
   </ItemGroup>
   <ItemGroup>
     <TransformFile Include="Transforms\Metadata.xml" />

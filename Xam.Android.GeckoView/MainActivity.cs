@@ -24,10 +24,15 @@ namespace Xam.Android.GeckoView
             session.Open(runtime);
             view.SetSession(session, runtime);
 
+            //Use Mozilla GeckoView API with session object
+            //session.LoadUri("https://www.google.fr")
+
+            //Or use your own inherited GeckoViewManaged class facade
+            //if you prefer handling events and some other things in a more Xamarin way
+            //You can go through your originals properties through View, Session, Runtime properties
             MyGeckoView managed = new MyGeckoView(view, session, runtime);
 
             managed.LoadUri("https://www.google.fr"); // Or any other URL...
-            //managed.LoadUri("https://lupblazorclockcanvas.z20.web.core.windows.net/"); // Or any other URL...
         }
     }
 }
