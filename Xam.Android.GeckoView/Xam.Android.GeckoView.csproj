@@ -104,6 +104,10 @@
       <Project>{58ac9abc-9ca1-4505-8244-583f488949d8}</Project>
       <Name>Xam.Android.GeckoView.Bindings</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Xam.Android.GeckoView.Extension\Xam.Android.GeckoView.Extension.csproj">
+      <Project>{057e8d4d-6964-485f-86f8-e7a081265d38}</Project>
+      <Name>Xam.Android.GeckoView.Extension</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\activity_geckoview.axml">

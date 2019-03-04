@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xam.Android.GeckoView", "Xa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xam.Android.GeckoView.Bindings", "Xam.Android.GeckoView.Bindings\Xam.Android.GeckoView.Bindings.csproj", "{58AC9ABC-9CA1-4505-8244-583F488949D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xam.Android.GeckoView.Extension", "Xam.Android.GeckoView.Extension\Xam.Android.GeckoView.Extension.csproj", "{057E8D4D-6964-485F-86F8-E7A081265D38}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{58AC9ABC-9CA1-4505-8244-583F488949D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58AC9ABC-9CA1-4505-8244-583F488949D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58AC9ABC-9CA1-4505-8244-583F488949D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{057E8D4D-6964-485F-86F8-E7A081265D38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{057E8D4D-6964-485F-86F8-E7A081265D38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{057E8D4D-6964-485F-86F8-E7A081265D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{057E8D4D-6964-485F-86F8-E7A081265D38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
