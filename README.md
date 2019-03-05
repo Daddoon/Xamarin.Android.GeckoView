@@ -89,6 +89,14 @@ According to the current [AndroidManifest.xml](https://github.com/mozilla/gecko-
 
 If you want to access Hardware components, you have to add the permission accordingly to your `AndroidManifest.xml` file.
 
+## Additional
+
+**NOTE:** From the GeckoView library native dependencies, version **26.1.0.0** is the bare minimum, but it seem that Xamarin fail to compile with the library on this version.
+
+**Additional:** Even if the JavaDoc is included on the source code, it seem that JavaDocToMd fail to generate the corresponding Bindings documentation. So there is no code documentation available for this moment.
+
+Feel free to see [Mozilla: Documentation and Examples](https://wiki.mozilla.org/Mobile/GeckoView#Documentation_and_Examples)
+
 ## Authors
 
 * **Guillaume ZAHRA** - [Daddoon](https://github.com/Daddoon)
