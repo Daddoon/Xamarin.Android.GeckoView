@@ -45,7 +45,7 @@ Modify or create an Android layout resource, like the one in **Resources > layou
 
 And modify your MainActivity file like this:
 
-```chsharp
+```csharp
 using Android.App;
 using Android.OS;
 using Android.Support.V7.App;
