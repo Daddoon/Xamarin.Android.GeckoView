@@ -18,7 +18,7 @@ Usable from **Android 4.4** to **Android 9.0**
 
 **Warning:**
 
-The NuGet package is pretty big (~= 500MB) to download as it contains SDK compiler variation for MonoAndroid 8.0, MonoAndroid 8.1 and MonoAndroid 9.0, and as the GeckoView native library is **150 MB** as it's a multi-arch platform version, it makes the package bigger.
+The NuGet package is pretty big **(~= 500MB)** to download as it contains SDK compiler variation for MonoAndroid 8.0, MonoAndroid 8.1 and MonoAndroid 9.0, and as the GeckoView native library is **150 MB** as it's a multi-arch platform version, it makes the package bigger.
 
 If you build your own project with the **one APK per ABI option** checked, the library size will be reduced to **~50MB per APK architecture**
 
