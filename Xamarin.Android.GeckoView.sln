@@ -3,7 +3,55 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28606.126
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xam.Android.GeckoView", "Xam.Android.GeckoView\Xam.Android.GeckoView.csproj", "{2A89240B-DC5E-4F4B-B5EF-E23E2E74CBFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xam.Android.GeckoView.Bindings.MonoAndroid9.0", "Xam.Android.GeckoView.Bindings.MonoAndroid9.0\Xam.Android.GeckoView.Bindings.MonoAndroid9.0.csproj", "{58AC9ABC-9CA1-4505-8244-583F488949D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xam.Android.GeckoView.Bindings.MonoAndroid8.1", "Xam.Android.GeckoView.Bindings.MonoAndroid8.1\Xam.Android.GeckoView.Bindings.MonoAndroid8.1.csproj", "{17B1C329-EE1A-4BFE-946F-8A5D3B4C7F67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xam.Android.GeckoView.Extension", "Xam.Android.GeckoView.Extension\Xam.Android.GeckoView.Extension.csproj", "{057E8D4D-6964-485F-86F8-E7A081265D38}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xam.Android.GeckoView.NuGet", "Xam.Android.GeckoView.NuGet\Xam.Android.GeckoView.NuGet.csproj", "{68CACABC-54A6-49A0-8EF5-0C89612E4CED}"
+	ProjectSection(ProjectDependencies) = postProject
+		{057E8D4D-6964-485F-86F8-E7A081265D38} = {057E8D4D-6964-485F-86F8-E7A081265D38}
+		{58AC9ABC-9CA1-4505-8244-583F488949D8} = {58AC9ABC-9CA1-4505-8244-583F488949D8}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xam.Android.GeckoView.Bindings.MonoAndroid8.0", "Xam.Android.GeckoView.Bindings.MonoAndroid8.0\Xam.Android.GeckoView.Bindings.MonoAndroid8.0.csproj", "{628017D9-476E-422D-8362-61C9D9E48951}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A89240B-DC5E-4F4B-B5EF-E23E2E74CBFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A89240B-DC5E-4F4B-B5EF-E23E2E74CBFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A89240B-DC5E-4F4B-B5EF-E23E2E74CBFF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2A89240B-DC5E-4F4B-B5EF-E23E2E74CBFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A89240B-DC5E-4F4B-B5EF-E23E2E74CBFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A89240B-DC5E-4F4B-B5EF-E23E2E74CBFF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{58AC9ABC-9CA1-4505-8244-583F488949D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58AC9ABC-9CA1-4505-8244-583F488949D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58AC9ABC-9CA1-4505-8244-583F488949D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58AC9ABC-9CA1-4505-8244-583F488949D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17B1C329-EE1A-4BFE-946F-8A5D3B4C7F67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17B1C329-EE1A-4BFE-946F-8A5D3B4C7F67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17B1C329-EE1A-4BFE-946F-8A5D3B4C7F67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17B1C329-EE1A-4BFE-946F-8A5D3B4C7F67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{057E8D4D-6964-485F-86F8-E7A081265D38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{057E8D4D-6964-485F-86F8-E7A081265D38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{057E8D4D-6964-485F-86F8-E7A081265D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{057E8D4D-6964-485F-86F8-E7A081265D38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68CACABC-54A6-49A0-8EF5-0C89612E4CED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68CACABC-54A6-49A0-8EF5-0C89612E4CED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68CACABC-54A6-49A0-8EF5-0C89612E4CED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68CACABC-54A6-49A0-8EF5-0C89612E4CED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{628017D9-476E-422D-8362-61C9D9E48951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{628017D9-476E-422D-8362-61C9D9E48951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{628017D9-476E-422D-8362-61C9D9E48951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{628017D9-476E-422D-8362-61C9D9E48951}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

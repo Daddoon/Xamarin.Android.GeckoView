@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>Xamarin.Android.GeckoView</id>
+        <version>0.1.0</version>
+        <title>Xamarin.Android.GeckoView</title>
+        <authors>Guillaume ZAHRA</authors>
+        <owners>daddoon</owners>
+        <licenseUrl>https://github.com/Daddoon/Xamarin.Android.GeckoView/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/Daddoon/Xamarin.Android.GeckoView</projectUrl>
+        <iconUrl>https://www.nuget.org/Content/gallery/img/default-package-icon-256x256.png</iconUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>Xamarin.Android.GeckoView is an Android Bindings project that allow you to use the GeckoView engine inside of your Xamarin.Android application. Support: x86_64, x86, arm64-v8a and armeabi-v7a</description>
+        <releaseNotes>As multi-arch official are not yet official, this build is based on a nightly-try build, version 67.0.20190228011332. As this library is multi-arch, it is quite big by default, consider using Android App Bundle or generated one APK per ABI</releaseNotes>
+        <copyright>Copyright 2019</copyright>
+        <tags>Xamarin Android GeckoView PWA Browser Webview</tags>
+        <dependencies>
+
+          <group targetFramework="MonoAndroid8.0">
+            <dependency id="Xamarin.Android.Support.v4" version="27.0.0.0" />
+            <dependency id="Xamarin.Android.Support.v7.Palette" version="27.0.0.0" />
+            <dependency id="Xamarin.Android.Support.v7.AppCompat" version="27.0.0.0" />
+          </group>
+
+          <group targetFramework="MonoAndroid8.1">
+            <dependency id="Xamarin.Android.Support.v4" version="27.0.0.0" />
+            <dependency id="Xamarin.Android.Support.v7.Palette" version="27.0.0.0" />
+            <dependency id="Xamarin.Android.Support.v7.AppCompat" version="27.0.0.0" />
+          </group>
+
+          <group targetFramework="MonoAndroid9.0">
+            <dependency id="Xamarin.Android.Support.v4" version="27.0.0.0" />
+            <dependency id="Xamarin.Android.Support.v7.Palette" version="27.0.0.0" />
+            <dependency id="Xamarin.Android.Support.v7.AppCompat" version="27.0.0.0" />
+          </group>
+    
+        </dependencies>
+    </metadata>
+    <files>
+
+      <!-- Android reference assemblies -->
+      <file src="..\Xam.Android.GeckoView.Bindings.MonoAndroid8.0\lib\MonoAndroid\Xam.Android.GeckoView.Bindings.dll" target="lib\MonoAndroid80\Xam.Android.GeckoView.Bindings.dll" />
+      <file src="..\Xam.Android.GeckoView.Bindings.MonoAndroid8.0\lib\MonoAndroid\Xam.Android.GeckoView.Bindings.xml" target="lib\MonoAndroid80\Xam.Android.GeckoView.Bindings.xml" />
+
+      <file src="..\Xam.Android.GeckoView.Bindings.MonoAndroid8.1\lib\MonoAndroid\Xam.Android.GeckoView.Bindings.dll" target="lib\MonoAndroid81\Xam.Android.GeckoView.Bindings.dll" />
+      <file src="..\Xam.Android.GeckoView.Bindings.MonoAndroid8.1\lib\MonoAndroid\Xam.Android.GeckoView.Bindings.xml" target="lib\MonoAndroid81\Xam.Android.GeckoView.Bindings.xml" />
+
+      <file src="..\Xam.Android.GeckoView.Bindings.MonoAndroid9.0\lib\MonoAndroid\Xam.Android.GeckoView.Bindings.dll" target="lib\MonoAndroid90\Xam.Android.GeckoView.Bindings.dll" />
+      <file src="..\Xam.Android.GeckoView.Bindings.MonoAndroid9.0\lib\MonoAndroid\Xam.Android.GeckoView.Bindings.xml" target="lib\MonoAndroid90\Xam.Android.GeckoView.Bindings.xml" />
+      
+    </files>
+</package>
