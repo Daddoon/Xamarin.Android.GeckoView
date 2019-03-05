@@ -114,7 +114,7 @@ Feel free to see [Mozilla: Documentation and Examples](https://wiki.mozilla.org/
 
 ## Inspiration
 
-I took inspiration for this guide from [Kevin Gliewe](https://github.com/KevinGliewe) as his CrossWalk binding project was for the same purpose !
+I took inspiration for this guide from [Kevin Gliewe](https://github.com/KevinGliewe) as his [CrossWalk binding project](https://github.com/KevinGliewe/Xamarin.Android.XWalk) was for the same type of purpose !
 
 Thanks a lot for your work as a reference.
 
