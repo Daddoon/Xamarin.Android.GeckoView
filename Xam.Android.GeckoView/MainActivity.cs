@@ -25,11 +25,13 @@ namespace Xam.Android.GeckoView
             view.SetSession(session, runtime);
 
             //Use Mozilla GeckoView API with session object
-            //session.LoadUri("https://www.google.fr")
+            //session.LoadUri("https://www.google.fr");
 
             //Or use your own inherited GeckoViewManaged class facade
             //if you prefer handling events and some other things in a more Xamarin way
             //You can go through your originals properties through View, Session, Runtime properties
+
+            //TODO: Actually export the Extension project as a NuGet package ?
             MyGeckoView managed = new MyGeckoView(view, session, runtime);
 
             managed.LoadUri("https://www.google.fr"); // Or any other URL...

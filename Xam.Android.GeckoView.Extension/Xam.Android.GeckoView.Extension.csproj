@@ -37,7 +37,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Mono.Android" />
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Preview\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v9.0\Mono.Android.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,9 +58,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Xam.Android.GeckoView.Bindings\Xam.Android.GeckoView.Bindings.csproj">
+    <ProjectReference Include="..\Xam.Android.GeckoView.Bindings.MonoAndroid9.0\Xam.Android.GeckoView.Bindings.MonoAndroid9.0.csproj">
       <Project>{58ac9abc-9ca1-4505-8244-583f488949d8}</Project>
-      <Name>Xam.Android.GeckoView.Bindings</Name>
+      <Name>Xam.Android.GeckoView.Bindings.MonoAndroid9.0</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
