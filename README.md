@@ -2,6 +2,11 @@
 
 An example Project to embed a [GeckoView](https://wiki.mozilla.org/Mobile/GeckoView) View & Engine into your Android App.
 
+## GeckoView Version
+
+The current version is: **GeckoView 67.0.20190228011332**
+From a nightly-try test build, as the multi-arch support is new.
+
 ## Compatibility
 
 Usable from **Android 4.4** to **Android 9.0**
@@ -18,7 +23,7 @@ Usable from **Android 4.4** to **Android 9.0**
 
 **Warning:**
 
-The NuGet package is pretty big **(~= 500MB)** to download as it contains SDK compiler variation for MonoAndroid 8.0, MonoAndroid 8.1 and MonoAndroid 9.0, and as the GeckoView native library is **150 MB** as it's a multi-arch platform version, it makes the package bigger.
+The NuGet package is pretty big, as the GeckoView native library is **150 MB** because it's a multi-arch platform version.
 
 If you build your own project with the **one APK per ABI option** checked, the library size will be reduced to **~50MB per APK architecture**
 
