@@ -58,9 +58,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Xam.Android.GeckoView.Bindings.MonoAndroid9.0\Xam.Android.GeckoView.Bindings.MonoAndroid9.0.csproj">
+    <ProjectReference Include="..\Xam.Android.GeckoView.Bindings\Xam.Android.GeckoView.Bindings.csproj">
       <Project>{58ac9abc-9ca1-4505-8244-583f488949d8}</Project>
-      <Name>Xam.Android.GeckoView.Bindings.MonoAndroid9.0</Name>
+      <Name>Xam.Android.GeckoView.Bindings</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

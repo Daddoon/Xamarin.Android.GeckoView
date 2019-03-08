@@ -39,9 +39,8 @@
     <files>
 
       <!-- Android reference assemblies -->
-      <!-- As assembly seem pretty bigs, and that diff between SDK 8.0, 8.1 and 9.0 seem to have the same output size considering to deliver only the 9.0 version for 8.0, 8.1, 9.0 -->
-      <file src="..\Xam.Android.GeckoView.Bindings.MonoAndroid9.0\lib\MonoAndroid\Xam.Android.GeckoView.Bindings.dll" target="lib\MonoAndroid\Xam.Android.GeckoView.Bindings.dll" />
-      <file src="..\Xam.Android.GeckoView.Bindings.MonoAndroid9.0\lib\MonoAndroid\Xam.Android.GeckoView.Bindings.xml" target="lib\MonoAndroid\Xam.Android.GeckoView.Bindings.xml" />
+      <file src="..\Xam.Android.GeckoView.Bindings\lib\MonoAndroid\Xam.Android.GeckoView.Bindings.dll" target="lib\MonoAndroid\Xam.Android.GeckoView.Bindings.dll" />
+      <file src="..\Xam.Android.GeckoView.Bindings\lib\MonoAndroid\Xam.Android.GeckoView.Bindings.xml" target="lib\MonoAndroid\Xam.Android.GeckoView.Bindings.xml" />
       
     </files>
 </package>
