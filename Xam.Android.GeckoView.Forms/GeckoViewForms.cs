@@ -5,41 +5,49 @@ using Xamarin.Forms.Internals;
 
 namespace Xam.Android.GeckoView.Forms
 {
-    public class GeckoViewForms : ContentView, IWebViewController
+    public class GeckoViewForms : View, IWebViewController
     {
         public static readonly BindableProperty SourceProperty;
-        //public static readonly BindableProperty CanGoBackProperty;
-        //public static readonly BindableProperty CanGoForwardProperty;
+        public static readonly BindableProperty CanGoBackProperty;
+        public static readonly BindableProperty CanGoForwardProperty;
 
-        //
-        // Résumé :
-        //     Gets or sets the Xamarin.Forms.WebViewSource object that represents the location
-        //     that this Xamarin.Forms.WebView object displays.
-        //
-        // Remarques :
-        //     To be added.
         [TypeConverter(typeof(WebViewSourceTypeConverter))]
         public WebViewSource Source { get; set; }
-        //
-        // Résumé :
-        //     Gets a value that indicates whether the user can navigate forward.
-        //
-        // Remarques :
-        //     To be added.
-        //public bool CanGoForward { get; }
-        //
-        // Résumé :
-        //     Gets a value that indicates whether the user can navigate to previous pages.
-        //
-        // Remarques :
-        //     To be added.
-        //public bool CanGoBack { get; }
-        bool IWebViewController.CanGoBack { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        bool IWebViewController.CanGoForward { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public void Eval(string script)
+        {
+            EvalRequested.Invoke(this, new EvalRequested(script));
+        }
+
+        public Task<string> EvaluateJavaScriptAsync(string script)
+        {
+            return EvaluateJavaScriptRequested.Invoke(script);
+        }
+
+        public bool CanGoBack { get; set; }
+        public bool CanGoForward { get; set; }
+
+        public void GoBack()
+        {
+            if (CanGoBack)
+            {
+                GoBackRequested.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        public void GoForward()
+        {
+            if (CanGoForward)
+            {
+                GoForwardRequested.Invoke(this, EventArgs.Empty);
+            }
+        }
 
         public GeckoViewForms()
         {
             Source = "about:blank";
+            CanGoBack = true;
+            CanGoForward = true;
 
             if (Device.RuntimePlatform != Device.Android)
             {
@@ -47,93 +55,33 @@ namespace Xam.Android.GeckoView.Forms
             }
         }
 
-        event EventHandler<EvalRequested> _EvalRequested;
+        public event EventHandler<EvalRequested> EvalRequested;
 
-        event EventHandler<EvalRequested> IWebViewController.EvalRequested
+        public event EvaluateJavaScriptDelegate EvaluateJavaScriptRequested;
+
+        public event EventHandler GoBackRequested;
+
+        public event EventHandler GoForwardRequested;
+
+        public event EventHandler ReloadRequested;
+
+        public event EventHandler<WebNavigatingEventArgs> Navigating;
+        
+        public event EventHandler<WebNavigatedEventArgs> Navigated;
+
+        public void SendNavigated(WebNavigatedEventArgs args)
         {
-            add
-            {
-                _EvalRequested += value;
-            }
-
-            remove
-            {
-                _EvalRequested -= value;
-            }
+            Navigated.Invoke(this, args);
         }
 
-        event EvaluateJavaScriptDelegate _EvaluateJavaScriptRequested;
-
-        event EvaluateJavaScriptDelegate IWebViewController.EvaluateJavaScriptRequested
+        public void SendNavigating(WebNavigatingEventArgs args)
         {
-            add
-            {
-                _EvaluateJavaScriptRequested += value;
-            }
-
-            remove
-            {
-                _EvaluateJavaScriptRequested -= value;
-            }
-        }
-
-        event EventHandler _GoBackRequested;
-
-        event EventHandler IWebViewController.GoBackRequested
-        {
-            add
-            {
-                _GoBackRequested += value;
-            }
-
-            remove
-            {
-                _GoBackRequested -= value;
-            }
-        }
-
-        event EventHandler _GoForwardRequested;
-
-        event EventHandler IWebViewController.GoForwardRequested
-        {
-            add
-            {
-                _GoForwardRequested += value;
-            }
-
-            remove
-            {
-                _GoForwardRequested -= value;
-            }
-        }
-
-        event EventHandler _ReloadRequested;
-        event EventHandler IWebViewController.ReloadRequested
-        {
-            add
-            {
-                _ReloadRequested += value;
-            }
-
-            remove
-            {
-                _ReloadRequested -= value;
-            }
-        }
-
-        void IWebViewController.SendNavigated(WebNavigatedEventArgs args)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IWebViewController.SendNavigating(WebNavigatingEventArgs args)
-        {
-            throw new NotImplementedException();
+            Navigating.Invoke(this, args);
         }
 
         public void Reload()
         {
-            _ReloadRequested.Invoke(this, EventArgs.Empty);
+            ReloadRequested.Invoke(this, EventArgs.Empty);
         }
     }
 }

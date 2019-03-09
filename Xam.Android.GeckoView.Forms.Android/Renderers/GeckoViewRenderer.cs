@@ -117,22 +117,22 @@ namespace Xam.Android.GeckoView.Forms.Android.Renderers
 
         private void OnGoForwardRequested(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _session.GoForward();
         }
 
         private void OnGoBackRequested(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _session.GoBack();
         }
 
         private Task<string> OnEvaluateJavaScriptRequested(string script)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException($"{nameof(OnEvaluateJavaScriptRequested)}: Javascript evaluation is not yet supported on GeckoView");
         }
 
         private void OnEvalRequested(object sender, EvalRequested e)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException($"{nameof(OnEvalRequested)}: Javascript evaluation is not yet supported on GeckoView");
         }
 
         private void Load()
