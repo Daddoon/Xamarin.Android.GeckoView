@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>Xamarin.Android.GeckoView</id>
-        <version>0.1.0</version>
+        <version>0.1.1</version>
         <title>Xamarin.Android.GeckoView</title>
         <authors>Guillaume ZAHRA</authors>
         <owners>daddoon</owners>
@@ -11,7 +11,7 @@
         <iconUrl>https://www.nuget.org/Content/gallery/img/default-package-icon-256x256.png</iconUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
         <description>Xamarin.Android.GeckoView is an Android Bindings project that allow you to use the GeckoView engine inside of your Xamarin.Android application. Support: x86_64, x86, arm64-v8a and armeabi-v7a</description>
-        <releaseNotes>As multi-arch official are not yet official, this build is based on a nightly-try build, version 67.0.20190228011332. As this library is multi-arch, it is quite big by default, consider using Android App Bundle or generated one APK per ABI</releaseNotes>
+        <releaseNotes>Added additional missing delegates: SelectionAction, Prompt, TrackingProtection, Permission and Navigation. As multi-arch official are not yet official, this build is based on a nightly-try build, version 67.0.20190228011332. As this library is multi-arch, it is quite big by default, consider using Android App Bundle or generated one APK per ABI</releaseNotes>
         <copyright>Copyright 2019</copyright>
         <tags>Xamarin Android GeckoView PWA Browser Webview</tags>
         <dependencies>

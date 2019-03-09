@@ -10,7 +10,7 @@
     <RootNamespace>Xam.Android.GeckoView.Test.Forms.Droid</RootNamespace>
     <AssemblyName>Xam.Android.GeckoView.Test.Forms.Android</AssemblyName>
     <AndroidApplication>True</AndroidApplication>
-	<AndroidDexTool>d8</AndroidDexTool>
+    <AndroidDexTool>d8</AndroidDexTool>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Android.GeckoView">
-      <Version>0.1.0</Version>
+      <Version>0.1.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.v4">
       <Version>28.0.0.1</Version>

@@ -1,34 +1,95 @@
-﻿using Org.Mozilla.Geckoview;
+﻿using Android.App;
+using Org.Mozilla.Geckoview;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Xam.Android.GeckoView.Bindings.Handlers;
+using Xam.Android.GeckoView.Extension.Handlers;
 using static Org.Mozilla.Geckoview.GeckoSession;
 
 namespace Org.Mozilla.Gecko
 {
     public abstract class GeckoViewManaged
     {
-        private readonly GeckoSession _session = null;
-        private readonly GeckoRuntime _runtime = null;
         private readonly GeckoView _view = null;
 
-        public GeckoViewManaged(GeckoView view, GeckoSession session, GeckoRuntime runtime)
+        private void SetSession(GeckoSession session, GeckoRuntime runtime)
         {
-            if (view == null || session == null || runtime == null)
-            {
-                throw new NullReferenceException("GeckoView, GeckoSession or GeckoRuntime is null");
-            }
+            CloseSession();
+            _view.SetSession(session, runtime);
+        }
 
-            _session = session;
-            _runtime = runtime;
-            _view = view;
+        public virtual Tuple<GeckoSession, GeckoRuntime> CreateSession(bool setAsCurrentSession)
+        {
+            var result = CreateSession();
+
+            if (setAsCurrentSession)
+            {
+                SetSession(result.Item1, result.Item2);
+            }
+            return result;
+        }
+
+        public virtual Tuple<GeckoSession, GeckoRuntime> CreateSession()
+        {
+            GeckoSession _session = new GeckoSession();
+            GeckoRuntime _runtime = GeckoRuntime.Create(Application.Context);
+            _session.Open(_runtime);
+
             _session.ProgressDelegate = new ProgressDelegate(this);
             _session.MediaDelegate = new MediaDelegate(this);
             _session.ContentDelegate = new ContentDelegate(this);
             _session.ScrollDelegate = new ScrollDelegate(this);
+            _session.NavigationDelegate = new NavigationDelegate(this);
+
+            return Tuple.Create(_session, _runtime);
+        }
+
+        private void CloseSession()
+        {
+            try
+            {
+                if (_view.Session != null)
+                {
+                    _view.ReleaseSession();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error during session Release: {ex.Message}");
+            }
+        }
+
+        private void InitGeckoView(GeckoView view, GeckoSession session, GeckoRuntime runtime)
+        {
+            SetSession(session, runtime);
+        }
+
+        public GeckoViewManaged(GeckoView view)
+        {
+            _view = view;
+
+            var newSession = CreateSession();
+            InitGeckoView(view, newSession.Item1, newSession.Item2);
+        }
+
+        public GeckoViewManaged(GeckoView view, GeckoSession session, GeckoRuntime runtime)
+        {
+            if (view == null)
+            {
+                throw new NullReferenceException($"{nameof(view)} is null");
+            }
+
+            if (session == null)
+            {
+                throw new NullReferenceException($"{ nameof(session) } is null");
+            }
+
+            if (runtime == null)
+            {
+                throw new NullReferenceException($"{nameof(runtime)} is null");
+            }
+
+            _view = view;
+            InitGeckoView(view, session, runtime);
         }
 
         #region Properties
@@ -37,19 +98,9 @@ namespace Org.Mozilla.Gecko
         {
             get
             {
-                return _session;
+                return _view.Session;
             }
         }
-
-        public GeckoRuntime Runtime
-        {
-            get
-            {
-                return _runtime;
-            }
-        }
-
-        public GeckoRuntimeSettings Settings => Runtime.Settings;
 
         public GeckoView View
         {
@@ -67,7 +118,7 @@ namespace Org.Mozilla.Gecko
         /// <param name="uri"></param>
         public virtual void LoadUri(string uri)
         {
-            _session.LoadUri(uri);
+            Session?.LoadUri(uri);
         }
 
         /// <summary>
@@ -77,7 +128,7 @@ namespace Org.Mozilla.Gecko
         /// <param name="flags"></param>
         public virtual void LoadUri(string uri, int flags)
         {
-            _session.LoadUri(uri, flags);
+            Session?.LoadUri(uri, flags);
         }
 
         /// <summary>
@@ -87,7 +138,7 @@ namespace Org.Mozilla.Gecko
         /// <param name="flags"></param>
         public virtual void LoadUri(string uri, string referrer, int flags)
         {
-            _session.LoadUri(uri, referrer, flags);
+            Session?.LoadUri(uri, referrer, flags);
         }
 
         /// <summary>
@@ -97,7 +148,7 @@ namespace Org.Mozilla.Gecko
         /// <param name="flags"></param>
         public virtual void LoadUri(Uri uri)
         {
-            _session.LoadUri(Android.Net.Uri.Parse(uri.ToString()));
+            Session?.LoadUri(Android.Net.Uri.Parse(uri.ToString()));
         }
 
         /// <summary>
@@ -107,7 +158,7 @@ namespace Org.Mozilla.Gecko
         /// <param name="flags"></param>
         public virtual void LoadUri(Uri uri, int flags)
         {
-            _session.LoadUri(Android.Net.Uri.Parse(uri.ToString()), flags);
+            Session?.LoadUri(Android.Net.Uri.Parse(uri.ToString()), flags);
         }
 
         /// <summary>
@@ -117,7 +168,7 @@ namespace Org.Mozilla.Gecko
         /// <param name="flags"></param>
         public virtual void LoadUri(Uri uri, Uri referrer, int flags)
         {
-            _session.LoadUri(Android.Net.Uri.Parse(uri.ToString()), Android.Net.Uri.Parse(referrer.ToString()), flags);
+            Session?.LoadUri(Android.Net.Uri.Parse(uri.ToString()), Android.Net.Uri.Parse(referrer.ToString()), flags);
         }
 
         /// <summary>
@@ -127,7 +178,7 @@ namespace Org.Mozilla.Gecko
         /// <param name="mimeType"></param>
         public virtual void LoadString(string data, string mimeType)
         {
-            _session.LoadString(data, mimeType);
+            Session?.LoadString(data, mimeType);
         }
 
 
@@ -138,7 +189,7 @@ namespace Org.Mozilla.Gecko
         /// <param name="mimeType"></param>
         public virtual void LoadData(byte[] bytes, string mimeType)
         {
-            _session.LoadData(bytes, mimeType);
+            Session?.LoadData(bytes, mimeType);
         }
 
         /// <summary>
@@ -146,7 +197,7 @@ namespace Org.Mozilla.Gecko
         /// </summary>
         public virtual void Stop()
         {
-            _session.Stop();
+            Session?.Stop();
         }
 
         /// <summary>
@@ -154,21 +205,22 @@ namespace Org.Mozilla.Gecko
         /// </summary>
         public virtual void Reload()
         {
-            _session.Reload();
+            Session?.Reload();
         }
 
         /// <summary>
         /// Restore a saved state to this GeckoSession; only data that is saved (history, scroll position, zoom, and form data) will be restored.
+        /// WARNING: Not yet tested
         /// </summary>
         /// <param name="sessionState"></param>
         public virtual void RestoreState(SessionState sessionState)
         {
-            _session.RestoreState(sessionState);
+            Session?.RestoreState(sessionState);
         }
 
         /// <summary>
         /// Save the current browsing session state of this GeckoSession.
-        /// WARNING from Xamarin.GeckoView: Not yet tested
+        /// WARNING: Not yet tested
         /// </summary>
         /// <returns></returns>
         public virtual Task<SessionState> SaveState()
@@ -180,7 +232,7 @@ namespace Org.Mozilla.Gecko
                 var onSuccess = new GeckoResultOnValueListener<SessionState>(tcs);
                 var onError = new GeckoResultOnExceptionListener<SessionState>(tcs);
 
-                var data = _session.SaveState();
+                var data = Session?.SaveState();
                 data.Then(onSuccess, onError);
             }
             catch (Exception ex)
@@ -326,6 +378,66 @@ namespace Org.Mozilla.Gecko
         public virtual void OnScrollChanged(GeckoSession session, int scrollX, int scrollY)
         {
         }
+
+        #region NavigationDelegate
+
+        /// <summary>
+        /// The view's ability to go back has changed.
+        /// </summary>
+        /// <param name="session">The GeckoSession that initiated the callback.</param>
+        /// <param name="canGoBack">The new value for the ability.</param>
+        public virtual void OnCanGoBack(GeckoSession session, bool canGoBack)
+        {
+        }
+
+        /// <summary>
+        /// The view's ability to go forward has changed.
+        /// </summary>
+        /// <param name="session">The GeckoSession that initiated the callback.</param>
+        /// <param name="canGoForward">The new value for the ability.</param>
+        public virtual void OnCanGoForward(GeckoSession session, bool canGoForward)
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="session">The GeckoSession that initiated the callback.</param>
+        /// <param name="uri">The URI that failed to load.</param>
+        /// <param name="error">A WebRequestError containing details about the error</param>
+        /// <returns>A URI to display as an error. Returning null will halt the load entirely.</returns>
+        public virtual GeckoResult OnLoadError(GeckoSession session, string uri, WebRequestError error)
+        {
+            return GeckoResult.FromValue(null);
+        }
+
+        /// <summary>
+        /// A request to open an URI. This is called before each top-level page load to allow custom behavior. For example, this can be used to override the behavior of TAGET_WINDOW_NEW requests, which defaults to requesting a new GeckoSession via onNewSession.
+        /// </summary>
+        /// <param name="session">The GeckoSession that initiated the callback.</param>
+        /// <param name="request">The GeckoSession.NavigationDelegate.LoadRequest containing the request details.</param>
+        /// <returns>A GeckoResult with a AllowOrDeny value which indicates whether or not the load was handled. If unhandled, Gecko will continue the load as normal. If handled (true value), Gecko will abandon the load. A null return value is interpreted as false (unhandled).</returns>
+        public virtual GeckoResult OnLoadRequest(GeckoSession session, avigationDelegateClassLoadRequest request)
+        {
+            return GeckoResult.FromValue(null);
+        }
+
+        public virtual void OnLocationChange(GeckoSession session, string url)
+        {
+        }
+
+        /// <summary>
+        /// A request has been made to open a new session. The URI is provided only for informational purposes. Do not call GeckoSession.loadUri() here. Additionally, the returned GeckoSession must be a newly-created one.
+        /// </summary>
+        /// <param name="session">The GeckoSession that initiated the callback.</param>
+        /// <param name="uri">The URI to be loaded.</param>
+        /// <returns>A GeckoResult which holds the returned GeckoSession. May be null, in which case the request for a new window by web content will fail. e.g., window.open() will return null.</returns>
+        public virtual GeckoResult OnNewSession(GeckoSession session, string uri)
+        {
+            return GeckoResult.FromValue(CreateSession().Item1);
+        }
+
+        #endregion NavigationDelegate
 
         #endregion Event Handlers
     }

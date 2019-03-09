@@ -19,22 +19,24 @@ namespace Xam.Android.GeckoView
             SetContentView(Resource.Layout.activity_geckoview);
 
             Org.Mozilla.Geckoview.GeckoView view = (Org.Mozilla.Geckoview.GeckoView)FindViewById(Resource.Id.geckoview);
-            GeckoSession session = new GeckoSession();
-            GeckoRuntime runtime = GeckoRuntime.Create(this);
-            session.Open(runtime);
-            view.SetSession(session, runtime);
 
-            //Use Mozilla GeckoView API with session object
-            //session.LoadUri("https://www.google.fr");
+            bool useFacade = false;
 
-            //Or use your own inherited GeckoViewManaged class facade
-            //if you prefer handling events and some other things in a more Xamarin way
-            //You can go through your originals properties through View, Session, Runtime properties
+            if (useFacade)
+            {
+                //Use Mozilla GeckoView API with session object
+                GeckoSession session = new GeckoSession();
+                GeckoRuntime runtime = GeckoRuntime.Create(this);
+                session.Open(runtime);
+                view.SetSession(session, runtime);
+                session.LoadUri("https://www.google.fr");
 
-            //TODO: Actually export the Extension project as a NuGet package ?
-            MyGeckoView managed = new MyGeckoView(view, session, runtime);
-
-            managed.LoadUri("https://www.google.fr"); // Or any other URL...
+            }
+            else
+            {
+                MyGeckoView managed = new MyGeckoView(view);
+                managed.LoadUri("https://www.google.fr"); // Or any other URL...
+            }
         }
     }
 }

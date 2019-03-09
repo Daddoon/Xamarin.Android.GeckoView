@@ -113,7 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Android.GeckoView">
-      <Version>0.1.0</Version>
+      <Version>0.1.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.v4">
       <Version>27.0.0.0</Version>
@@ -126,6 +126,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Xam.Android.GeckoView.Bindings\Xam.Android.GeckoView.Bindings.csproj">
+      <Project>{58AC9ABC-9CA1-4505-8244-583F488949D8}</Project>
+      <Name>Xam.Android.GeckoView.Bindings</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Xam.Android.GeckoView.Extension\Xam.Android.GeckoView.Extension.csproj">
       <Project>{057e8d4d-6964-485f-86f8-e7a081265d38}</Project>
       <Name>Xam.Android.GeckoView.Extension</Name>

@@ -52,6 +52,7 @@
     <Compile Include="Handlers\GeckoResultOnExceptionListener.cs" />
     <Compile Include="Handlers\GeckoResultOnValueListener.cs" />
     <Compile Include="Handlers\MediaDelegate.cs" />
+    <Compile Include="Handlers\NavigationDelegate.cs" />
     <Compile Include="Handlers\ProgressDelegate.cs" />
     <Compile Include="Handlers\ScrollDelegate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

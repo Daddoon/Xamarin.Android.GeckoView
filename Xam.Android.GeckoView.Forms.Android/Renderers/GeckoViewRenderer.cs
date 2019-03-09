@@ -11,6 +11,7 @@ using Xam.Android.GeckoView.Forms.Android.Renderers;
 using Android.Views;
 using Android.Util;
 using Android.Runtime;
+using Xam.Android.GeckoView.Forms.Android.Handlers;
 
 [assembly: ExportRenderer(typeof(GeckoViewForms), typeof(GeckoViewRenderer))]
 namespace Xam.Android.GeckoView.Forms.Android.Renderers
@@ -38,7 +39,7 @@ namespace Xam.Android.GeckoView.Forms.Android.Renderers
             {
                 if (Element != null)
                 {
-                    _session.Stop();
+                    _view?.Session.Stop();
 
                     IWebViewController ElementController = Element as IWebViewController;
 
@@ -47,8 +48,7 @@ namespace Xam.Android.GeckoView.Forms.Android.Renderers
                     ElementController.GoForwardRequested -= OnGoForwardRequested;
                     ElementController.ReloadRequested -= OnReloadRequested;
 
-                    _session.Dispose();
-                    _runtime.Dispose();
+                    _view?.Session.Dispose();
                 }
             }
 
@@ -56,18 +56,30 @@ namespace Xam.Android.GeckoView.Forms.Android.Renderers
             base.Dispose(disposing);
         }
 
-        GeckoSession _session = null;
-        GeckoRuntime _runtime = null;
         Org.Mozilla.Geckoview.GeckoView _view;
+
+        public virtual Tuple<GeckoSession, GeckoRuntime> CreateNewSession()
+        {
+            GeckoSession _session = new GeckoSession();
+            GeckoRuntime _runtime = GeckoRuntime.Create(Context);
+            _session.Open(_runtime);
+
+            //_session.NavigationDelegate = new NavigationDelegate(this);
+            _session.ProgressDelegate = new ProgressDelegate(this);
+
+            return Tuple.Create(_session, _runtime);
+        }
 
         private Org.Mozilla.Geckoview.GeckoView CreateGeckoViewControl()
         {
             _view = new Org.Mozilla.Geckoview.GeckoView(Context);
 
-            _session = new GeckoSession();
-            _runtime = GeckoRuntime.Create(Context);
-            _session.Open(_runtime);
-            _view.SetSession(_session, _runtime);
+            var sessionObjects = CreateNewSession();
+
+            var session = sessionObjects.Item1;
+            var runtime = sessionObjects.Item2;
+
+            _view.SetSession(session, runtime);
 
             return _view;
         }
@@ -81,7 +93,7 @@ namespace Xam.Android.GeckoView.Forms.Android.Renderers
                 var webView = CreateGeckoViewControl();
                 webView.LayoutParameters = new global::Android.Widget.LinearLayout.LayoutParams(LayoutParams.MatchParent, LayoutParams.MatchParent);
 
-                _session.Settings.AllowJavascript = true;
+                webView.Session.Settings.AllowJavascript = true;
                 //webView.Settings.DomStorageEnabled = true;
 
                 SetNativeControl(webView);
@@ -110,46 +122,46 @@ namespace Xam.Android.GeckoView.Forms.Android.Renderers
             Load();
         }
 
-        private void OnReloadRequested(object sender, EventArgs e)
+        protected virtual void OnReloadRequested(object sender, EventArgs e)
         {
-            _session.Reload();
+            _view?.Session.Reload();
         }
 
-        private void OnGoForwardRequested(object sender, EventArgs e)
+        protected virtual void OnGoForwardRequested(object sender, EventArgs e)
         {
-            _session.GoForward();
+            _view?.Session.GoForward();
         }
 
-        private void OnGoBackRequested(object sender, EventArgs e)
+        protected virtual void OnGoBackRequested(object sender, EventArgs e)
         {
-            _session.GoBack();
+            _view?.Session.GoBack();
         }
 
-        private Task<string> OnEvaluateJavaScriptRequested(string script)
+        protected virtual Task<string> OnEvaluateJavaScriptRequested(string script)
         {
             throw new NotImplementedException($"{nameof(OnEvaluateJavaScriptRequested)}: Javascript evaluation is not yet supported on GeckoView");
         }
 
-        private void OnEvalRequested(object sender, EvalRequested e)
+        protected virtual void OnEvalRequested(object sender, EvalRequested e)
         {
             throw new NotImplementedException($"{nameof(OnEvalRequested)}: Javascript evaluation is not yet supported on GeckoView");
         }
 
-        private void Load()
+        protected virtual void Load()
         {
             WebViewSource source = Element.Source;
             UrlWebViewSource uri = source as UrlWebViewSource;
 
             if (uri != null)
             {
-                _session.LoadUri(uri.Url);
+                _view?.Session.LoadUri(uri.Url);
             }
             else
             {
                 HtmlWebViewSource html = source as HtmlWebViewSource;
                 if (html != null)
                 {
-                    _session.LoadString(html.Html, "text/html");
+                    _view?.Session.LoadString(html.Html, "text/html");
                 }
             }
         }
@@ -166,14 +178,14 @@ namespace Xam.Android.GeckoView.Forms.Android.Renderers
             }
         }
 
-        public void LoadHtml(string html, string baseUrl)
+        public virtual void LoadHtml(string html, string baseUrl)
         {
-            _session.LoadString(html, "text/html");
+            _view?.Session.LoadString(html, "text/html");
         }
 
-        public void LoadUrl(string url)
+        public virtual void LoadUrl(string url)
         {
-            _session.LoadUri(url);
+            _view?.Session.LoadUri(url);
         }
     }
 }

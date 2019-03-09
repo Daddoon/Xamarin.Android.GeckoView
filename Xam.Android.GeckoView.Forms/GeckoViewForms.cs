@@ -16,12 +16,12 @@ namespace Xam.Android.GeckoView.Forms
 
         public void Eval(string script)
         {
-            EvalRequested.Invoke(this, new EvalRequested(script));
+            EvalRequested?.Invoke(this, new EvalRequested(script));
         }
 
         public Task<string> EvaluateJavaScriptAsync(string script)
         {
-            return EvaluateJavaScriptRequested.Invoke(script);
+            return EvaluateJavaScriptRequested?.Invoke(script);
         }
 
         public bool CanGoBack { get; set; }
@@ -31,7 +31,7 @@ namespace Xam.Android.GeckoView.Forms
         {
             if (CanGoBack)
             {
-                GoBackRequested.Invoke(this, EventArgs.Empty);
+                GoBackRequested?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -39,7 +39,7 @@ namespace Xam.Android.GeckoView.Forms
         {
             if (CanGoForward)
             {
-                GoForwardRequested.Invoke(this, EventArgs.Empty);
+                GoForwardRequested?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -71,17 +71,17 @@ namespace Xam.Android.GeckoView.Forms
 
         public void SendNavigated(WebNavigatedEventArgs args)
         {
-            Navigated.Invoke(this, args);
+            Navigated?.Invoke(this, args);
         }
 
         public void SendNavigating(WebNavigatingEventArgs args)
         {
-            Navigating.Invoke(this, args);
+            Navigating?.Invoke(this, args);
         }
 
         public void Reload()
         {
-            ReloadRequested.Invoke(this, EventArgs.Empty);
+            ReloadRequested?.Invoke(this, EventArgs.Empty);
         }
     }
 }

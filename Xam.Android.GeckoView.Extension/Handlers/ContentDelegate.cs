@@ -8,7 +8,7 @@ using Org.Mozilla.Gecko;
 using Org.Mozilla.Geckoview;
 using static Org.Mozilla.Geckoview.GeckoSession;
 
-namespace Xam.Android.GeckoView.Bindings.Handlers
+namespace Xam.Android.GeckoView.Extension.Handlers
 {
     internal class ContentDelegate : global::Java.Lang.Object, IContentDelegate
     {

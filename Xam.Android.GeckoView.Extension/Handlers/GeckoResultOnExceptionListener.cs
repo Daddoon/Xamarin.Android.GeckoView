@@ -5,7 +5,7 @@ using Java.Lang;
 using Org.Mozilla.Geckoview;
 using static Org.Mozilla.Geckoview.GeckoResult;
 
-namespace Xam.Android.GeckoView.Bindings.Handlers
+namespace Xam.Android.GeckoView.Extension.Handlers
 {
     internal class GeckoResultOnExceptionListener<T> : Java.Lang.Object, IOnExceptionListener
     {
