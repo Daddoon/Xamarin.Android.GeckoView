@@ -1,8 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using Android;
+using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.Net;
+using Android.Support.V4.App;
+using Android.Support.V4.Content;
 using Org.Mozilla.Geckoview;
+using Xam.Droid.GeckoView.Forms.Droid.Consts;
+using Xam.Droid.GeckoView.Forms.Droid.Helpers;
 using Xam.Droid.GeckoView.Forms.Droid.Renderers;
+using Xamarin.Forms;
 using static Org.Mozilla.Geckoview.GeckoSession;
 
 namespace Xam.Droid.GeckoView.Forms.Droid.Handlers
@@ -44,16 +53,74 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Handlers
 
             //See https://bugzilla.mozilla.org/show_bug.cgi?id=1522705
 
-            //try
-            //{
-            //    Intent intent = new Intent(Intent.ActionView);
-            //    intent.SetDataAndTypeAndNormalize(new Android.Net.Uri(, response.ContentType);
-            //    startActivity(intent);
-            //}
-            //catch (ActivityNotFoundException e)
-            //{
-            //    downloadFile(response);
-            //}
+            try
+            {
+                Intent intent = new Intent(Intent.ActionView);
+                intent.SetDataAndTypeAndNormalize(Android.Net.Uri.Parse(response.Uri) , response.ContentType);
+                _renderer.Context.StartActivity(intent);
+            }
+            catch (ActivityNotFoundException e)
+            {
+                DownloadFile(session, response);
+            }
+        }
+
+        private void DownloadFile(GeckoSession session, WebResponseInfo response)
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                try
+                {
+                    string userAgent = await GeckoResultHelper.GetResult<string>(session.UserAgent);
+                    DownloadFile(response, userAgent);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"{nameof(DownloadFile)} - {nameof(ex)}: {ex.Message}");
+                }
+            });
+        }
+
+        private List<WebResponseInfo> _pendingDownloads = new List<WebResponseInfo>();
+
+        private void DownloadFile(WebResponseInfo response, string userAgent)
+        {
+            if (ContextCompat.CheckSelfPermission(_renderer.Context,
+            Manifest.Permission.WriteExternalStorage) != Permission.Granted)
+            {
+                _pendingDownloads.Add(response);
+                ActivityCompat.RequestPermissions(_renderer.Activity,
+                        new string[] { Manifest.Permission.WriteExternalStorage },
+                        PermissionRequestCode.REQUEST_WRITE_EXTERNAL_STORAGE);
+                return;
+            }
+
+            Android.Net.Uri uri = Android.Net.Uri.Parse(response.Uri);
+            string filename = response.Filename != null ? response.Filename : uri.LastPathSegment;
+
+            DownloadManager manager = (DownloadManager)_renderer.Context.GetSystemService(Android.Content.Context.DownloadService);
+            DownloadManager.Request req = new DownloadManager.Request(uri);
+            req.SetMimeType(response.ContentType);
+            req.SetDestinationInExternalPublicDir(Android.OS.Environment.DirectoryDownloads, filename);
+            req.SetNotificationVisibility(DownloadVisibility.Visible);
+            req.AddRequestHeader("User-Agent", userAgent);
+            manager.Enqueue(req);
+        }
+
+        /// <summary>
+        /// This code will never be called.
+        /// It would be possible if we can trigger the granted permission event and then call things back here
+        /// But it should be about the final user implementation in it's app
+        /// </summary>
+        private void ContinueDownloads()
+        {
+            List<WebResponseInfo> downloads = _pendingDownloads;
+            _pendingDownloads = new List<WebResponseInfo>();
+
+            foreach (WebResponseInfo response in downloads)
+            {
+                DownloadFile(_renderer.Control.Session, response);
+            }
         }
 
         public void OnFirstComposite(GeckoSession session)

@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Android.Support.V4.App;
 using Xam.Droid.GeckoView.Forms.Droid.Renderers;
 
 namespace Xam.Droid.GeckoView.Test.Forms.Droid
@@ -15,7 +16,7 @@ namespace Xam.Droid.GeckoView.Test.Forms.Droid
 
             base.OnCreate(savedInstanceState);
 
-            GeckoViewRenderer.Init();
+            GeckoViewRenderer.Init(this);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());

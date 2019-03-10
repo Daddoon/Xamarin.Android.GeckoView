@@ -15,7 +15,11 @@ namespace Xam.Droid.GeckoView.Test.Forms
             InitializeComponent();
             var geckoForms = new GeckoViewForms()
             {
-                Source = "https://lupblazorpaint.z20.web.core.windows.net/"
+                //Test for basic file download with download manager with no auth
+                Source = "https://github.com/Daddoon/Xamarin.Android.GeckoView/releases/tag/0.1.0"
+
+                //Test for WASM support
+                //Source = "https://lupblazorpaint.z20.web.core.windows.net/"
             };
             geckoForms.HorizontalOptions = LayoutOptions.FillAndExpand;
             geckoForms.VerticalOptions = LayoutOptions.FillAndExpand;

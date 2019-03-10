@@ -45,9 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consts\PermissionRequestCode.cs" />
     <Compile Include="Handlers\ContentDelegate.cs" />
     <Compile Include="Handlers\NavigationDelegate.cs" />
     <Compile Include="Handlers\ProgressDelegate.cs" />
+    <Compile Include="Helpers\GeckoResultHelper.cs" />
+    <Compile Include="Helpers\GeckoResultOnExceptionListener.cs" />
+    <Compile Include="Helpers\GeckoResultOnValueListener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Renderers\GeckoViewRenderer.cs" />
   </ItemGroup>

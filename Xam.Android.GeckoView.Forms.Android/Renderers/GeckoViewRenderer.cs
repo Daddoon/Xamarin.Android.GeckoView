@@ -9,15 +9,25 @@ using System.Threading.Tasks;
 using Xam.Droid.GeckoView.Forms;
 using Xam.Droid.GeckoView.Forms.Droid.Renderers;
 using Xam.Droid.GeckoView.Forms.Droid.Handlers;
+using Android.App;
 
 [assembly: ExportRenderer(typeof(GeckoViewForms), typeof(GeckoViewRenderer))]
 namespace Xam.Droid.GeckoView.Forms.Droid.Renderers
 {
     public class GeckoViewRenderer : ViewRenderer<GeckoViewForms, Org.Mozilla.Geckoview.GeckoView>, IWebViewDelegate
     {
-        public static void Init()
+        private static Activity _activity { get; set; }
+
+        public Activity Activity {
+            get
+            {
+                return _activity;
+            }
+        }
+
+        public static void Init(Activity activity)
         {
-            //No-op
+            _activity = activity;
         }
 
         public GeckoViewRenderer() : base()
