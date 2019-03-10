@@ -4,7 +4,7 @@ using Org.Mozilla.Geckoview;
 using System;
 using static Org.Mozilla.Geckoview.GeckoSession;
 
-namespace Xam.Android.GeckoView
+namespace Xam.Droid.GeckoView
 {
     public class MyGeckoView : GeckoViewManaged
     {

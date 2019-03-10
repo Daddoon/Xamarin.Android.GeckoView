@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
-namespace Xam.Android.GeckoView.Forms
+namespace Xam.Droid.GeckoView.Forms
 {
     public class GeckoViewForms : View, IWebViewController
     {

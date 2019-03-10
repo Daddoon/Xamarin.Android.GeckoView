@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Xam.Android.GeckoView.Test.Forms
+namespace Xam.Droid.GeckoView.Test.Forms
 {
     public partial class App : Application
     {

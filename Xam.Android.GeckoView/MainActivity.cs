@@ -7,7 +7,7 @@ using Org.Mozilla.Geckoview;
 using Android;
 using Org.Mozilla.Gecko;
 
-namespace Xam.Android.GeckoView
+namespace Xam.Droid.GeckoView
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity

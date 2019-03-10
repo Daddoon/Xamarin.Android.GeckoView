@@ -2,7 +2,7 @@
 using Org.Mozilla.Geckoview;
 using static Org.Mozilla.Geckoview.GeckoSession;
 
-namespace Xam.Android.GeckoView.Extension.Handlers
+namespace Xam.Droid.GeckoView.Extension.Handlers
 {
     public class NavigationDelegate : global::Java.Lang.Object, NavigationDelegateClass
     {

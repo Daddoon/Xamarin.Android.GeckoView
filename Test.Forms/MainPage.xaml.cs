@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xam.Android.GeckoView.Forms;
+using Xam.Droid.GeckoView.Forms;
 using Xamarin.Forms;
 
-namespace Xam.Android.GeckoView.Test.Forms
+namespace Xam.Droid.GeckoView.Test.Forms
 {
     public partial class MainPage : ContentPage
     {

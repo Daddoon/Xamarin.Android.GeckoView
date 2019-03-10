@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceAssemblyReference>true</ProduceAssemblyReference>
+    <AssemblyName>Xam.Droid.GeckoView.Test.Forms</AssemblyName>
+    <RootNamespace>Xam.Droid.GeckoView.Test.Forms</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

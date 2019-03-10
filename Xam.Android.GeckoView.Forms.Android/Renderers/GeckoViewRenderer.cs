@@ -6,15 +6,12 @@ using Android.Content;
 using System.ComponentModel;
 using Xamarin.Forms.Internals;
 using System.Threading.Tasks;
-using Xam.Android.GeckoView.Forms;
-using Xam.Android.GeckoView.Forms.Android.Renderers;
-using Android.Views;
-using Android.Util;
-using Android.Runtime;
-using Xam.Android.GeckoView.Forms.Android.Handlers;
+using Xam.Droid.GeckoView.Forms;
+using Xam.Droid.GeckoView.Forms.Droid.Renderers;
+using Xam.Droid.GeckoView.Forms.Droid.Handlers;
 
 [assembly: ExportRenderer(typeof(GeckoViewForms), typeof(GeckoViewRenderer))]
-namespace Xam.Android.GeckoView.Forms.Android.Renderers
+namespace Xam.Droid.GeckoView.Forms.Droid.Renderers
 {
     public class GeckoViewRenderer : ViewRenderer<GeckoViewForms, Org.Mozilla.Geckoview.GeckoView>, IWebViewDelegate
     {
@@ -66,6 +63,7 @@ namespace Xam.Android.GeckoView.Forms.Android.Renderers
 
             //_session.NavigationDelegate = new NavigationDelegate(this);
             _session.ProgressDelegate = new ProgressDelegate(this);
+            _session.ContentDelegate = new ContentDelegate(this);
 
             return Tuple.Create(_session, _runtime);
         }

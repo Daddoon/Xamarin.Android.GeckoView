@@ -2,7 +2,7 @@
 using Org.Mozilla.Geckoview;
 using System;
 using System.Threading.Tasks;
-using Xam.Android.GeckoView.Extension.Handlers;
+using Xam.Droid.GeckoView.Extension.Handlers;
 using static Org.Mozilla.Geckoview.GeckoSession;
 
 namespace Org.Mozilla.Gecko

@@ -8,7 +8,7 @@ using Org.Mozilla.Gecko;
 using Org.Mozilla.Geckoview;
 using static Org.Mozilla.Geckoview.GeckoSession;
 
-namespace Xam.Android.GeckoView.Extension.Handlers
+namespace Xam.Droid.GeckoView.Extension.Handlers
 {
     internal class ScrollDelegate : global::Java.Lang.Object, IScrollDelegate
     {

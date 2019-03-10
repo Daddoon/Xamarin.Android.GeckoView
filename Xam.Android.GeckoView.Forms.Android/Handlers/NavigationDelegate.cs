@@ -1,9 +1,9 @@
 ﻿using Org.Mozilla.Gecko;
 using Org.Mozilla.Geckoview;
-using Xam.Android.GeckoView.Forms.Android.Renderers;
+using Xam.Droid.GeckoView.Forms.Droid.Renderers;
 using static Org.Mozilla.Geckoview.GeckoSession;
 
-namespace Xam.Android.GeckoView.Forms.Android.Handlers
+namespace Xam.Droid.GeckoView.Forms.Droid.Handlers
 {
     public class NavigationDelegate : global::Java.Lang.Object, NavigationDelegateClass
     {

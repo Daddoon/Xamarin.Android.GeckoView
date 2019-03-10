@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Xam.Droid.GeckoView.Forms</AssemblyName>
+    <RootNamespace>Xam.Droid.GeckoView.Forms</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

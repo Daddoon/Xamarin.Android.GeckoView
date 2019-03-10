@@ -6,11 +6,11 @@ using Android.App;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Xam.Android.GeckoView.Test.Forms.Android")]
+[assembly: AssemblyTitle("Xam.Droid.GeckoView.Test.Forms.Droid")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Xam.Android.GeckoView.Test.Forms.Android")]
+[assembly: AssemblyProduct("Xam.Droid.GeckoView.Test.Forms.Droid")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

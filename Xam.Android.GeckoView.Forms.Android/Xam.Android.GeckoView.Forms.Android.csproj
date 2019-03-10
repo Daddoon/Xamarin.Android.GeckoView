@@ -10,8 +10,8 @@
     <TemplateGuid>{9ef11e43-1701-4396-8835-8392d57abb70}</TemplateGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Xam.Android.GeckoView.Forms.Android</RootNamespace>
-    <AssemblyName>Xam.Android.GeckoView.Forms.Android</AssemblyName>
+    <RootNamespace>Xam.Droid.GeckoView.Forms.Droid</RootNamespace>
+    <AssemblyName>Xam.Droid.GeckoView.Forms.Droid</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Handlers\ContentDelegate.cs" />
     <Compile Include="Handlers\NavigationDelegate.cs" />
     <Compile Include="Handlers\ProgressDelegate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

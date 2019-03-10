@@ -1,11 +1,11 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using Xam.Android.GeckoView.Forms.Android.Renderers;
+using Xam.Droid.GeckoView.Forms.Droid.Renderers;
 
-namespace Xam.Android.GeckoView.Test.Forms.Droid
+namespace Xam.Droid.GeckoView.Test.Forms.Droid
 {
-    [Activity(Label = "Xam.Android.GeckoView.Test.Forms", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Xam.Droid.GeckoView.Test.Forms", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

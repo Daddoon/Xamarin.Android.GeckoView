@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using Android.Runtime;
 using Org.Mozilla.Gecko;
 using Org.Mozilla.Geckoview;
-using Xam.Android.GeckoView.Forms.Android.Renderers;
+using Xam.Droid.GeckoView.Forms.Droid.Renderers;
 using static Org.Mozilla.Geckoview.GeckoSession;
 
-namespace Xam.Android.GeckoView.Forms.Android.Handlers
+namespace Xam.Droid.GeckoView.Forms.Droid.Handlers
 {
     public class ProgressDelegate : global::Java.Lang.Object, IProgressDelegate
     {
@@ -20,6 +20,9 @@ namespace Xam.Android.GeckoView.Forms.Android.Handlers
             _renderer = renderer;
         }
 
+        /// <summary>
+        /// This is here for conveniencen, updated from the OnPageStart event. We should rely on something else in the future.
+        /// </summary>
         string _currentURI = string.Empty;
 
         public void OnPageStart(GeckoSession session, string url)
