@@ -5,19 +5,30 @@ VisualStudioVersion = 16.0.28606.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xam.Android.GeckoView", "Xam.Android.GeckoView\Xam.Android.GeckoView.csproj", "{2A89240B-DC5E-4F4B-B5EF-E23E2E74CBFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xam.Android.GeckoView.Bindings.MonoAndroid9.0", "Xam.Android.GeckoView.Bindings.MonoAndroid9.0\Xam.Android.GeckoView.Bindings.MonoAndroid9.0.csproj", "{58AC9ABC-9CA1-4505-8244-583F488949D8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xam.Android.GeckoView.Bindings.MonoAndroid8.1", "Xam.Android.GeckoView.Bindings.MonoAndroid8.1\Xam.Android.GeckoView.Bindings.MonoAndroid8.1.csproj", "{17B1C329-EE1A-4BFE-946F-8A5D3B4C7F67}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xam.Android.GeckoView.Bindings", "Xam.Android.GeckoView.Bindings\Xam.Android.GeckoView.Bindings.csproj", "{58AC9ABC-9CA1-4505-8244-583F488949D8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xam.Android.GeckoView.Extension", "Xam.Android.GeckoView.Extension\Xam.Android.GeckoView.Extension.csproj", "{057E8D4D-6964-485F-86F8-E7A081265D38}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xam.Android.GeckoView.NuGet", "Xam.Android.GeckoView.NuGet\Xam.Android.GeckoView.NuGet.csproj", "{68CACABC-54A6-49A0-8EF5-0C89612E4CED}"
 	ProjectSection(ProjectDependencies) = postProject
-		{057E8D4D-6964-485F-86F8-E7A081265D38} = {057E8D4D-6964-485F-86F8-E7A081265D38}
 		{58AC9ABC-9CA1-4505-8244-583F488949D8} = {58AC9ABC-9CA1-4505-8244-583F488949D8}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xam.Android.GeckoView.Bindings.MonoAndroid8.0", "Xam.Android.GeckoView.Bindings.MonoAndroid8.0\Xam.Android.GeckoView.Bindings.MonoAndroid8.0.csproj", "{628017D9-476E-422D-8362-61C9D9E48951}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xam.Android.GeckoView.Forms.Android", "Xam.Android.GeckoView.Forms.Android\Xam.Android.GeckoView.Forms.Android.csproj", "{9CA0266B-50A6-4DCB-A213-E553AB7A4BA0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xam.Android.GeckoView.Forms", "Xam.Android.GeckoView.Forms\Xam.Android.GeckoView.Forms.csproj", "{CB2EA4B9-8C07-43D7-A32B-07E2885AF90D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{4C8A00A4-4C99-40F2-ABD4-BF44D61B853D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xam.Android.GeckoView.Test.Forms.Android", "Test.Forms.Android\Xam.Android.GeckoView.Test.Forms.Android.csproj", "{858802CD-4279-438D-9AA7-274E98453AEC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xam.Android.GeckoView.Test.Forms", "Test.Forms\Xam.Android.GeckoView.Test.Forms.csproj", "{C9C15245-6B81-4632-A167-37D50206E969}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{DB0279D9-20D6-4AB7-B4EE-C37DB1EA5099}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Forms", "Forms", "{B4570540-8BB2-45E7-8E07-775477C43E22}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extra", "Extra", "{200D8397-0730-4BA8-9A00-0A0ABB83F1D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +46,6 @@ Global
 		{58AC9ABC-9CA1-4505-8244-583F488949D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58AC9ABC-9CA1-4505-8244-583F488949D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58AC9ABC-9CA1-4505-8244-583F488949D8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{17B1C329-EE1A-4BFE-946F-8A5D3B4C7F67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{17B1C329-EE1A-4BFE-946F-8A5D3B4C7F67}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{17B1C329-EE1A-4BFE-946F-8A5D3B4C7F67}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{17B1C329-EE1A-4BFE-946F-8A5D3B4C7F67}.Release|Any CPU.Build.0 = Release|Any CPU
 		{057E8D4D-6964-485F-86F8-E7A081265D38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{057E8D4D-6964-485F-86F8-E7A081265D38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{057E8D4D-6964-485F-86F8-E7A081265D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,13 +54,36 @@ Global
 		{68CACABC-54A6-49A0-8EF5-0C89612E4CED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68CACABC-54A6-49A0-8EF5-0C89612E4CED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68CACABC-54A6-49A0-8EF5-0C89612E4CED}.Release|Any CPU.Build.0 = Release|Any CPU
-		{628017D9-476E-422D-8362-61C9D9E48951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{628017D9-476E-422D-8362-61C9D9E48951}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{628017D9-476E-422D-8362-61C9D9E48951}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{628017D9-476E-422D-8362-61C9D9E48951}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CA0266B-50A6-4DCB-A213-E553AB7A4BA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CA0266B-50A6-4DCB-A213-E553AB7A4BA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CA0266B-50A6-4DCB-A213-E553AB7A4BA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CA0266B-50A6-4DCB-A213-E553AB7A4BA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB2EA4B9-8C07-43D7-A32B-07E2885AF90D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB2EA4B9-8C07-43D7-A32B-07E2885AF90D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB2EA4B9-8C07-43D7-A32B-07E2885AF90D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB2EA4B9-8C07-43D7-A32B-07E2885AF90D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{858802CD-4279-438D-9AA7-274E98453AEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{858802CD-4279-438D-9AA7-274E98453AEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{858802CD-4279-438D-9AA7-274E98453AEC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{858802CD-4279-438D-9AA7-274E98453AEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{858802CD-4279-438D-9AA7-274E98453AEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{858802CD-4279-438D-9AA7-274E98453AEC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C9C15245-6B81-4632-A167-37D50206E969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C15245-6B81-4632-A167-37D50206E969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C15245-6B81-4632-A167-37D50206E969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C15245-6B81-4632-A167-37D50206E969}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2A89240B-DC5E-4F4B-B5EF-E23E2E74CBFF} = {4C8A00A4-4C99-40F2-ABD4-BF44D61B853D}
+		{58AC9ABC-9CA1-4505-8244-583F488949D8} = {DB0279D9-20D6-4AB7-B4EE-C37DB1EA5099}
+		{057E8D4D-6964-485F-86F8-E7A081265D38} = {200D8397-0730-4BA8-9A00-0A0ABB83F1D4}
+		{9CA0266B-50A6-4DCB-A213-E553AB7A4BA0} = {B4570540-8BB2-45E7-8E07-775477C43E22}
+		{CB2EA4B9-8C07-43D7-A32B-07E2885AF90D} = {B4570540-8BB2-45E7-8E07-775477C43E22}
+		{858802CD-4279-438D-9AA7-274E98453AEC} = {4C8A00A4-4C99-40F2-ABD4-BF44D61B853D}
+		{C9C15245-6B81-4632-A167-37D50206E969} = {4C8A00A4-4C99-40F2-ABD4-BF44D61B853D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {24A37E94-A0EB-4C2C-A3F7-8FDFBC948F2D}

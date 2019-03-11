@@ -8,7 +8,7 @@ using Org.Mozilla.Gecko;
 using Org.Mozilla.Geckoview;
 using static Org.Mozilla.Geckoview.GeckoSession;
 
-namespace Xam.Android.GeckoView.Bindings.Handlers
+namespace Xam.Droid.GeckoView.Extension.Handlers
 {
     internal class ProgressDelegate : global::Java.Lang.Object, IProgressDelegate
     {

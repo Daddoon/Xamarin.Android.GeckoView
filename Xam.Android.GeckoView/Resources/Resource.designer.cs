@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("Xam.Android.GeckoView.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("Xam.Droid.GeckoView.Resource", IsApplication=true)]
 
-namespace Xam.Android.GeckoView
+namespace Xam.Droid.GeckoView
 {
 	
 	

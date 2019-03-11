@@ -10,8 +10,8 @@
     <TemplateGuid>{9ef11e43-1701-4396-8835-8392d57abb70}</TemplateGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Xam.Android.GeckoView.Extension</RootNamespace>
-    <AssemblyName>Xam.Android.GeckoView.Extension</AssemblyName>
+    <RootNamespace>Xam.Droid.GeckoView.Extension</RootNamespace>
+    <AssemblyName>Xam.Droid.GeckoView.Extension</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
@@ -52,15 +52,16 @@
     <Compile Include="Handlers\GeckoResultOnExceptionListener.cs" />
     <Compile Include="Handlers\GeckoResultOnValueListener.cs" />
     <Compile Include="Handlers\MediaDelegate.cs" />
+    <Compile Include="Handlers\NavigationDelegate.cs" />
     <Compile Include="Handlers\ProgressDelegate.cs" />
     <Compile Include="Handlers\ScrollDelegate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Xam.Android.GeckoView.Bindings.MonoAndroid9.0\Xam.Android.GeckoView.Bindings.MonoAndroid9.0.csproj">
+    <ProjectReference Include="..\Xam.Android.GeckoView.Bindings\Xam.Android.GeckoView.Bindings.csproj">
       <Project>{58ac9abc-9ca1-4505-8244-583f488949d8}</Project>
-      <Name>Xam.Android.GeckoView.Bindings.MonoAndroid9.0</Name>
+      <Name>Xam.Android.GeckoView.Bindings</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
