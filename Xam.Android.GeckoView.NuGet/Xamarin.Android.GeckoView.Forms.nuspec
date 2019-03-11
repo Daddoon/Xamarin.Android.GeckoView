@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>Xamarin.Android.GeckoView.Forms</id>
+        <version>0.1.1</version>
+        <title>Xamarin.Android.GeckoView.Forms</title>
+        <authors>Guillaume ZAHRA</authors>
+        <owners>daddoon</owners>
+        <licenseUrl>https://github.com/Daddoon/Xamarin.Android.GeckoView/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/Daddoon/Xamarin.Android.GeckoView</projectUrl>
+        <iconUrl>https://www.nuget.org/Content/gallery/img/default-package-icon-256x256.png</iconUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>Xamarin.Android.GeckoView.Forms is based on Xamarin.Android.GeckoView, in order to create a Xamarin.Android.GeckoView from a Xamarin.Forms context. See Xamarin.Android.GeckoView for more info.</description>
+        <releaseNotes>First release</releaseNotes>
+        <copyright>Copyright 2019</copyright>
+        <tags>Xamarin Android GeckoView Browser Webview</tags>
+        <dependencies>
+
+          <group targetFramework="netstandard2.0">
+            <dependency id="Xamarin.Forms" version="3.5.0" />
+          </group>
+
+          <group targetFramework="MonoAndroid8.0">
+            <dependency id="Xamarin.Android.GeckoView" version="0.1.1" />
+            <dependency id="Xamarin.Forms" version="3.5.0" />
+          </group>
+
+          <group targetFramework="MonoAndroid8.1">
+            <dependency id="Xamarin.Android.GeckoView" version="0.1.1" />
+            <dependency id="Xamarin.Forms" version="3.5.0" />
+          </group>
+
+          <group targetFramework="MonoAndroid9.0">
+            <dependency id="Xamarin.Android.GeckoView" version="0.1.1" />
+            <dependency id="Xamarin.Forms" version="3.5.0" />
+          </group>
+    
+        </dependencies>
+    </metadata>
+    <files>
+
+      <!-- Android reference assemblies -->
+      
+      <!-- .NETStandard 2.0 implementation - same as Shared implementation -->
+      <file src="..\Xam.Android.GeckoView.Forms\lib\netstandard2.0\Xam.Droid.GeckoView.Forms.dll" target="lib\netstandard2.0\Xam.Droid.GeckoView.Forms.dll" />
+      <file src="..\Xam.Android.GeckoView.Forms\lib\netstandard2.0\Xam.Droid.GeckoView.Forms.xml" target="lib\netstandard2.0\Xam.Droid.GeckoView.Forms.xml" />
+      
+      <!-- Shared implementation -->
+      <file src="..\Xam.Android.GeckoView.Forms.Android\lib\Xam.Droid.GeckoView.Forms.dll" target="lib\MonoAndroid\Xam.Droid.GeckoView.Forms.dll" />
+      <file src="..\Xam.Android.GeckoView.Forms.Android\lib\Xam.Droid.GeckoView.Forms.xml" target="lib\MonoAndroid\Xam.Droid.GeckoView.Forms.xml" />
+      
+      <!-- Android implementation -->
+      <file src="..\Xam.Android.GeckoView.Forms.Android\lib\Xam.Droid.GeckoView.Forms.Droid.dll" target="lib\MonoAndroid\Xam.Droid.GeckoView.Forms.Droid.dll" />
+      <file src="..\Xam.Android.GeckoView.Forms.Android\lib\Xam.Droid.GeckoView.Forms.Droid.xml" target="lib\MonoAndroid\Xam.Droid.GeckoView.Forms.Droid.xml" />
+      
+    </files>
+</package>

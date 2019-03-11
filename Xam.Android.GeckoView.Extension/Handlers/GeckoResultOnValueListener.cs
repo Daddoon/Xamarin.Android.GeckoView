@@ -3,7 +3,7 @@ using System;
 using System.Threading.Tasks;
 using static Org.Mozilla.Geckoview.GeckoResult;
 
-namespace Xam.Android.GeckoView.Bindings.Handlers
+namespace Xam.Droid.GeckoView.Extension.Handlers
 {
     internal class GeckoResultOnValueListener<T> : Java.Lang.Object, IOnValueListener
     {

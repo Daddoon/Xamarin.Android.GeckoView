@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="nuget pack .\Xamarin.Android.GeckoView.nuspec -OutputDirectory .\artifacts" />
+    <Exec Command="nuget pack .\Xamarin.Android.GeckoView.nuspec -OutputDirectory .\artifacts&#xD;&#xA;nuget pack .\Xamarin.Android.GeckoView.Forms.nuspec -OutputDirectory .\artifacts" />
   </Target>
 
 </Project>
