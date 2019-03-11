@@ -1,4 +1,4 @@
-# Xamarin.Android GeckoView Binding & Xamarin.Android.GeckoView.Forms
+# Xamarin.Android GeckoView
 
 Projects & Nuget packages in order to embed a [GeckoView](https://wiki.mozilla.org/Mobile/GeckoView) View & Engine into your Xamarin.Android App or Xamarin.Forms App (Android only of course)
 
