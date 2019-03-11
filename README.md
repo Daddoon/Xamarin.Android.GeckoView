@@ -20,6 +20,7 @@ Usable from **Android 4.4** to **Android 9.0**
 - Xamarin.Android.Support.v4 (>= 27.0.0.0) required by **GeckoView**
 - Xamarin.Android.Support.v7.Palette (>= 27.0.0.0) required by **GeckoView**
 - Xamarin.Android.Support.v7.AppCompat (>= 27.0.0.0) required by **Xamarin**
+- Xamarin.Forms (>= 3.5.0) **if using Xamarin.Android.GeckoView.Forms package**
 
 **Warning:**
 
