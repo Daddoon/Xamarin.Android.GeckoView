@@ -13,7 +13,7 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Handlers
 {
     public class ProgressDelegate : global::Java.Lang.Object, IProgressDelegate
     {
-        private GeckoViewRenderer _renderer;
+        protected GeckoViewRenderer _renderer;
 
         public ProgressDelegate(GeckoViewRenderer renderer)
         {

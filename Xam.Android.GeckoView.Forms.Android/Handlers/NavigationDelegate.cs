@@ -7,7 +7,7 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Handlers
 {
     public class NavigationDelegate : global::Java.Lang.Object, NavigationDelegateClass
     {
-        private GeckoViewRenderer _renderer;
+        protected GeckoViewRenderer _renderer;
 
         public NavigationDelegate(GeckoViewRenderer renderer)
         {

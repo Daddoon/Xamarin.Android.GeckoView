@@ -18,7 +18,7 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Handlers
 {
     public class ContentDelegate : global::Java.Lang.Object, IContentDelegate
     {
-        private GeckoViewRenderer _renderer;
+        protected GeckoViewRenderer _renderer;
 
         public ContentDelegate(GeckoViewRenderer renderer)
         {

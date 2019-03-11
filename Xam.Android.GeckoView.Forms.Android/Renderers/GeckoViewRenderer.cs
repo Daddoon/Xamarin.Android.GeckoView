@@ -70,8 +70,6 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Renderers
             GeckoSession _session = new GeckoSession();
             GeckoRuntime _runtime = GeckoRuntime.Create(Context);
             _session.Open(_runtime);
-
-            //_session.NavigationDelegate = new NavigationDelegate(this);
             _session.ProgressDelegate = new ProgressDelegate(this);
             _session.ContentDelegate = new ContentDelegate(this);
 
