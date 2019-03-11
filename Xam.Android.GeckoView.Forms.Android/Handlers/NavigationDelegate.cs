@@ -14,33 +14,32 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Handlers
             _renderer = renderer;
         }
 
-        public void OnCanGoBack(GeckoSession session, bool canGoBack)
+        public virtual void OnCanGoBack(GeckoSession session, bool canGoBack)
         {
            
         }
 
-        public void OnCanGoForward(GeckoSession session, bool canGoForward)
+        public virtual void OnCanGoForward(GeckoSession session, bool canGoForward)
         {
 
         }
 
-        public GeckoResult OnLoadError(GeckoSession session, string uri, WebRequestError error)
+        public virtual GeckoResult OnLoadError(GeckoSession session, string uri, WebRequestError error)
         {
             return GeckoResult.FromValue(null);
         }
 
-        public GeckoResult OnLoadRequest(GeckoSession session, avigationDelegateClassLoadRequest request)
+        public virtual GeckoResult OnLoadRequest(GeckoSession session, avigationDelegateClassLoadRequest request)
         {
-            _renderer.Element.SendNavigating(new Xamarin.Forms.WebNavigatingEventArgs(Xamarin.Forms.WebNavigationEvent.NewPage, request.Uri, request.Uri));
             return GeckoResult.FromValue(null);
         }
 
-        public void OnLocationChange(GeckoSession session, string url)
+        public virtual void OnLocationChange(GeckoSession session, string url)
         {
 
         }
 
-        public GeckoResult OnNewSession(GeckoSession session, string uri)
+        public virtual GeckoResult OnNewSession(GeckoSession session, string uri)
         {
             return GeckoResult.FromValue(_renderer.CreateNewSession().Item1);
         }

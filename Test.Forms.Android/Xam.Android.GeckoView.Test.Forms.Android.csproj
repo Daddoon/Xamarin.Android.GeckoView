@@ -56,9 +56,6 @@
     <PackageReference Include="Xamarin.Android.GeckoView">
       <Version>0.1.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Android.GeckoView.Forms">
-      <Version>0.1.1</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.v4">
       <Version>28.0.0.1</Version>
     </PackageReference>
@@ -110,6 +107,14 @@
     <ProjectReference Include="..\Test.Forms\Xam.Android.GeckoView.Test.Forms.csproj">
       <Project>{c9c15245-6b81-4632-a167-37d50206e969}</Project>
       <Name>Xam.Android.GeckoView.Test.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xam.Android.GeckoView.Forms.Android\Xam.Android.GeckoView.Forms.Android.csproj">
+      <Project>{9ca0266b-50a6-4dcb-a213-e553ab7a4ba0}</Project>
+      <Name>Xam.Android.GeckoView.Forms.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xam.Android.GeckoView.Forms\Xam.Android.GeckoView.Forms.csproj">
+      <Project>{cb2ea4b9-8c07-43d7-a32b-07e2885af90d}</Project>
+      <Name>Xam.Android.GeckoView.Forms</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

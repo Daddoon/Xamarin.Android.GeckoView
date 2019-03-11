@@ -25,15 +25,15 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Handlers
             _renderer = renderer;
         }
 
-        public void OnCloseRequest(GeckoSession session)
+        public virtual void OnCloseRequest(GeckoSession session)
         {
         }
 
-        public void OnContextMenu(GeckoSession session, int screenX, int screenY, ContentDelegateContextElement element)
+        public virtual void OnContextMenu(GeckoSession session, int screenX, int screenY, ContentDelegateContextElement element)
         {
         }
 
-        public void OnCrash(GeckoSession session)
+        public virtual void OnCrash(GeckoSession session)
         {
         }
 
@@ -42,7 +42,7 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Handlers
         /// </summary>
         /// <param name="session">the GeckoSession that received the external response.</param>
         /// <param name="response">the WebResponseInfo for the external response</param>
-        public void OnExternalResponse(GeckoSession session, WebResponseInfo response)
+        public virtual void OnExternalResponse(GeckoSession session, WebResponseInfo response)
         {
             //We actually use a simple version using the DownloadManager here
             //As GeckoView is not a WebView, we cannot get Cookies credential from current request to put it in DownloadManager
@@ -123,19 +123,19 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Handlers
             }
         }
 
-        public void OnFirstComposite(GeckoSession session)
+        public virtual void OnFirstComposite(GeckoSession session)
         {
         }
 
-        public void OnFocusRequest(GeckoSession session)
+        public virtual void OnFocusRequest(GeckoSession session)
         {
         }
 
-        public void OnFullScreen(GeckoSession session, bool fullScreen)
+        public virtual void OnFullScreen(GeckoSession session, bool fullScreen)
         {
         }
 
-        public void OnTitleChange(GeckoSession session, string title)
+        public virtual void OnTitleChange(GeckoSession session, string title)
         {
         }
     }
