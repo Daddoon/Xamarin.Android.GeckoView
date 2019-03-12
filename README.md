@@ -289,6 +289,33 @@ Even if the JavaDoc is included on the source code, it seem that JavaDocToMd fai
 
 Feel free to see [Mozilla: Documentation and Examples](https://wiki.mozilla.org/Mobile/GeckoView#Documentation_and_Examples)
 
+## Troubleshooting
+
+You may encounter this error on your Android project:
+
+```
+COMPILETODALVIK : Uncaught translation error : com.android.dx.cf.code.SimException: invalid opcode ba (invokedynamic re2>quires --min-sdk-version >= 26)
+```
+
+From Visual Studio 2019, you may add this line
+
+```xml
+<AndroidDexTool>d8</AndroidDexTool>
+```
+
+in your .csproj file.
+
+So it may look like:
+
+```xml
+...
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidDexTool>d8</AndroidDexTool>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+...
+```
+
 ## Authors
 
 * **Guillaume ZAHRA** - [Daddoon](https://github.com/Daddoon)
