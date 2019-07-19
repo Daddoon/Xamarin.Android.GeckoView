@@ -88,19 +88,19 @@
   <remove-node path="/api/package[@name='com.google.android.exoplayer2.upstream']/*" />
 
   <!-- GeckoSession -->
-  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.SelectionActionDelegate']" name="managedName">GeckoSession.SelectionActionDelegateClass</attr>
+  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.SelectionActionDelegate']" name="managedName">SelectionActionDelegateClass</attr>
   <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.SelectionActionDelegate']" name="visibility">public</attr>
 
-  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.PromptDelegate']" name="managedName">GeckoSession.PromptDelegateClass</attr>
+  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.PromptDelegate']" name="managedName">PromptDelegateClass</attr>
   <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.PromptDelegate']" name="visibility">public</attr>
   
-  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.TrackingProtectionDelegate']" name="managedName">GeckoSession.TrackingProtectionDelegateClass</attr>
+  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.TrackingProtectionDelegate']" name="managedName">TrackingProtectionDelegateClass</attr>
   <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.TrackingProtectionDelegate']" name="visibility">public</attr>
   
-  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.PermissionDelegate']" name="managedName">GeckoSession.PermissionDelegateClass</attr>
+  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.PermissionDelegate']" name="managedName">PermissionDelegateClass</attr>
   <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.PermissionDelegate']" name="visibility">public</attr>
   
-  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.NavigationDelegate']" name="managedName">GeckoSession.NavigationDelegateClass</attr>
+  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.NavigationDelegate']" name="managedName">NavigationDelegateClass</attr>
   <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.NavigationDelegate']" name="visibility">public</attr>
 
   <!-- Still have to work on HistoryDelegate translation -->

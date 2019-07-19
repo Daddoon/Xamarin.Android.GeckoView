@@ -15,8 +15,11 @@ namespace Xam.Droid.GeckoView.Test.Forms
             InitializeComponent();
             var geckoForms = new GeckoViewForms()
             {
+                //Test WASM performance (local app)
+                Source = "http://192.168.114:5080/login"
+
                 //Test for basic file download with download manager with no auth
-                Source = "https://github.com/Daddoon/Xamarin.Android.GeckoView/releases/tag/0.1.0"
+                //Source = "https://github.com/Daddoon/Xamarin.Android.GeckoView/releases/tag/0.1.0"
 
                 //Test for WASM support
                 //Source = "https://lupblazorpaint.z20.web.core.windows.net/"
