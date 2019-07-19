@@ -74,8 +74,7 @@
   <ItemGroup>
     <None Include="Jars\AboutJars.txt" />
     <None Include="Additions\AboutAdditions.txt" />
-    <LibraryProjectZip Include="Jars\geckoview-beta-69.0.20190718100030.aar" />
-    <JavaDocJar Include="JavaDocs\geckoview-beta-69.0.20190718100030-javadoc.jar" />
+    <LibraryProjectZip Include="Jars\geckoview-nightly-70.0.20190719094503.aar" />
   </ItemGroup>
   <ItemGroup>
     <TransformFile Include="Transforms\Metadata.xml" />
@@ -83,7 +82,22 @@
     <TransformFile Include="Transforms\EnumMethods.xml" />
   </ItemGroup>
   <ItemGroup>
-    <JavaSourceJar Include="JavaDocs\geckoview-beta-69.0.20190718100030-sources.jar" />
+    <JavaDocJar Include="JavaDocs\geckoview-nightly-70.0.20190719094503-javadoc.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <JavaSourceJar Include="JavaDocs\geckoview-nightly-70.0.20190719094503-sources.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedReferenceJar Include="Jars\snakeyaml-1.24.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedReferenceJar Include="Jars\common-java8-1.1.1.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedReferenceJar Include="Jars\android.arch.lifecycle.extensions-1.1.1.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedReferenceJar Include="Jars\common-1.1.1.jar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

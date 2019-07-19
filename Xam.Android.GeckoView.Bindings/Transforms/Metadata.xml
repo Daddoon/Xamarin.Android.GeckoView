@@ -88,20 +88,26 @@
   <remove-node path="/api/package[@name='com.google.android.exoplayer2.upstream']/*" />
 
   <!-- GeckoSession -->
-  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.SelectionActionDelegate']" name="managedName">SelectionActionDelegateClass</attr>
-  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.SelectionActionDelegate']" name="visibility">public</attr>
+  
+  <remove-node path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.SelectionActionDelegate']" />
+  <!--<attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.SelectionActionDelegate']" name="managedName">SelectionActionDelegateClass</attr>
+  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.SelectionActionDelegate']" name="visibility">public</attr>-->
 
-  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.PromptDelegate']" name="managedName">PromptDelegateClass</attr>
-  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.PromptDelegate']" name="visibility">public</attr>
-  
-  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.TrackingProtectionDelegate']" name="managedName">TrackingProtectionDelegateClass</attr>
-  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.TrackingProtectionDelegate']" name="visibility">public</attr>
-  
-  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.PermissionDelegate']" name="managedName">PermissionDelegateClass</attr>
-  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.PermissionDelegate']" name="visibility">public</attr>
-  
-  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.NavigationDelegate']" name="managedName">NavigationDelegateClass</attr>
-  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.NavigationDelegate']" name="visibility">public</attr>
+  <remove-node path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.PromptDelegate']" />
+  <!--<attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.PromptDelegate']" name="managedName">PromptDelegateClass</attr>
+  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.PromptDelegate']" name="visibility">public</attr>-->
+
+  <remove-node path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.TrackingProtectionDelegate']"  />
+  <!--<attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.TrackingProtectionDelegate']" name="managedName">TrackingProtectionDelegateClass</attr>
+  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.TrackingProtectionDelegate']" name="visibility">public</attr>-->
+
+  <remove-node path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.PermissionDelegate']" />
+  <!--<attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.PermissionDelegate']" name="managedName">PermissionDelegateClass</attr>
+  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.PermissionDelegate']" name="visibility">public</attr>-->
+
+  <remove-node path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.NavigationDelegate']" />
+  <!--<attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.NavigationDelegate']" name="managedName">INavigationDelegate</attr>
+  <attr path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.NavigationDelegate']" name="visibility">public</attr> -->
 
   <!-- Still have to work on HistoryDelegate translation -->
   <remove-node path="/api/package[@name='org.mozilla.geckoview']/interface[@name='GeckoSession.HistoryDelegate']" />
@@ -121,4 +127,7 @@
 
   <!--<remove-node path="/api/package[@name='org.mozilla.geckoview']/interface[@name='SessionTextInput.EditableListener']/constructor[@name='SessionTextInput.EditableListener']" />-->
   <remove-node path="/api/package[@name='org.mozilla.geckoview']/class[@name='SessionTextInput']" />
+
+  <remove-node path="/api/package[@name='org.yaml.snakeyaml']" />
+
 </metadata>
