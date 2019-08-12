@@ -43,11 +43,11 @@
       
       <!-- .NETStandard 2.0 implementation - same as Shared implementation -->
       <file src="..\Xam.Android.GeckoView.Forms\lib\netstandard2.0\Xam.Droid.GeckoView.Forms.dll" target="lib\netstandard2.0\Xam.Droid.GeckoView.Forms.dll" />
-      <file src="..\Xam.Android.GeckoView.Forms\lib\netstandard2.0\Xam.Droid.GeckoView.Forms.xml" target="lib\netstandard2.0\Xam.Droid.GeckoView.Forms.xml" />
+      <file src="..\Xam.Android.GeckoView.Forms\lib\Xam.Droid.GeckoView.Forms.xml" target="lib\netstandard2.0\Xam.Droid.GeckoView.Forms.xml" />
       
       <!-- Shared implementation -->
       <file src="..\Xam.Android.GeckoView.Forms.Android\lib\Xam.Droid.GeckoView.Forms.dll" target="lib\MonoAndroid\Xam.Droid.GeckoView.Forms.dll" />
-      <file src="..\Xam.Android.GeckoView.Forms.Android\lib\Xam.Droid.GeckoView.Forms.xml" target="lib\MonoAndroid\Xam.Droid.GeckoView.Forms.xml" />
+      <file src="..\Xam.Android.GeckoView.Forms\lib\Xam.Droid.GeckoView.Forms.xml" target="lib\MonoAndroid\Xam.Droid.GeckoView.Forms.xml" />
       
       <!-- Android implementation -->
       <file src="..\Xam.Android.GeckoView.Forms.Android\lib\Xam.Droid.GeckoView.Forms.Droid.dll" target="lib\MonoAndroid\Xam.Droid.GeckoView.Forms.Droid.dll" />
