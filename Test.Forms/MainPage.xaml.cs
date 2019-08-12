@@ -16,7 +16,7 @@ namespace Xam.Droid.GeckoView.Test.Forms
             var geckoForms = new GeckoViewForms()
             {
                 //Test for basic file download with download manager with no auth
-                Source = "https://github.com/Daddoon/Xamarin.Android.GeckoView/releases/tag/0.1.0"
+                Source = "https://www.google.fr"
 
                 //Test for WASM support
                 //Source = "https://lupblazorpaint.z20.web.core.windows.net/"
@@ -25,6 +25,15 @@ namespace Xam.Droid.GeckoView.Test.Forms
             geckoForms.VerticalOptions = LayoutOptions.FillAndExpand;
 
             stackLayout.Children.Add(geckoForms);
+
+            Task.Run(async () =>
+            {
+                await Task.Delay(5000);
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    geckoForms.Source = "https://stackoverflow.com/";
+                });
+            });
         }
     }
 }

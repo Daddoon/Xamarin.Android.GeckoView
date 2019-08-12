@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
+[assembly: InternalsVisibleTo("Xam.Droid.GeckoView.Forms.Droid")]
 namespace Xam.Droid.GeckoView.Forms
 {
     public class GeckoViewForms : View, IWebViewController
@@ -11,8 +13,23 @@ namespace Xam.Droid.GeckoView.Forms
         public static readonly BindableProperty CanGoBackProperty;
         public static readonly BindableProperty CanGoForwardProperty;
 
+        private WebViewSource _source = default;
+
+        internal event EventHandler SourcePropertyChanged;
+
         [TypeConverter(typeof(WebViewSourceTypeConverter))]
-        public WebViewSource Source { get; set; }
+        public WebViewSource Source
+        {
+            get
+            {
+                return _source;
+            }
+            set
+            {
+                _source = value;
+                SourcePropertyChanged?.Invoke(this, EventArgs.Empty);
+            }
+        }
 
         public void Eval(string script)
         {
