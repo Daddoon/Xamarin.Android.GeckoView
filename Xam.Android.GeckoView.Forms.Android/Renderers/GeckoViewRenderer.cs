@@ -40,20 +40,26 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Renderers
             AutoPackage = false;
         }
 
+        Org.Mozilla.Geckoview.GeckoView _view;
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                if (Element != null)
+                var geckoViewForms = Element;
+
+                if (geckoViewForms != null)
                 {
                     _view?.Session.Stop();
 
-                    IWebViewController ElementController = Element as IWebViewController;
+                    IWebViewController ElementController = geckoViewForms as IWebViewController;
 
                     ElementController.EvalRequested -= OnEvalRequested;
                     ElementController.GoBackRequested -= OnGoBackRequested;
                     ElementController.GoForwardRequested -= OnGoForwardRequested;
                     ElementController.ReloadRequested -= OnReloadRequested;
+
+                    geckoViewForms.SourcePropertyChanged -= OnSourcePropertyChanged;
 
                     _view?.Session.Dispose();
                 }
@@ -62,8 +68,6 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Renderers
             //GeckoView is disposed here
             base.Dispose(disposing);
         }
-
-        Org.Mozilla.Geckoview.GeckoView _view;
 
         public virtual Tuple<GeckoSession, GeckoRuntime> CreateNewSession()
         {
@@ -113,6 +117,8 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Renderers
                 oldElementController.GoBackRequested -= OnGoBackRequested;
                 oldElementController.GoForwardRequested -= OnGoForwardRequested;
                 oldElementController.ReloadRequested -= OnReloadRequested;
+
+                e.NewElement.SourcePropertyChanged -= OnSourcePropertyChanged;
             }
 
             if (e.NewElement != null)
@@ -123,9 +129,16 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Renderers
                 newElementController.GoBackRequested += OnGoBackRequested;
                 newElementController.GoForwardRequested += OnGoForwardRequested;
                 newElementController.ReloadRequested += OnReloadRequested;
+
+                e.NewElement.SourcePropertyChanged += OnSourcePropertyChanged;
             }
 
             Load();
+        }
+
+        private void OnSourcePropertyChanged(object sender, EventArgs e)
+        {
+            OnElementPropertyChanged(this, new PropertyChangedEventArgs("Source"));
         }
 
         protected virtual void OnReloadRequested(object sender, EventArgs e)

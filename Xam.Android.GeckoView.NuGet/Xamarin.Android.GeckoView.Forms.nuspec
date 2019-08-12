@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>Xamarin.Android.GeckoView.Forms</id>
-        <version>0.1.1</version>
+        <version>0.1.2</version>
         <title>Xamarin.Android.GeckoView.Forms</title>
         <authors>Guillaume ZAHRA</authors>
         <owners>daddoon</owners>
@@ -11,7 +11,7 @@
         <iconUrl>https://www.nuget.org/Content/gallery/img/default-package-icon-256x256.png</iconUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
         <description>Xamarin.Android.GeckoView.Forms is based on Xamarin.Android.GeckoView, in order to create a Xamarin.Android.GeckoView from a Xamarin.Forms context. See Xamarin.Android.GeckoView for more info.</description>
-        <releaseNotes>First release</releaseNotes>
+        <releaseNotes>Fix Url source change not propagated to the native control</releaseNotes>
         <copyright>Copyright 2019</copyright>
         <tags>Xamarin Android GeckoView Browser Webview</tags>
         <dependencies>
