@@ -40,6 +40,30 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Renderers
             AutoPackage = false;
         }
 
+        /// <summary>
+        /// Update the CanGoBack and CanGoForward. This must be called from a GeckoView Navigation delegate
+        /// If the boolean value is null, the specified variable will not be updated
+        /// </summary>
+        /// <param name="canGoBack"></param>
+        /// <param name="canGoForward"></param>
+        internal void UpdateCanGoBackForward(bool? canGoBack, bool? canGoForward)
+        {
+            if (Element == null)
+            {
+                return;
+            }
+
+            if (canGoBack != null)
+            {
+                ((IWebViewController)Element).CanGoBack = (bool)canGoBack;
+            }
+
+            if (canGoForward != null)
+            {
+                ((IWebViewController)Element).CanGoForward = (bool)canGoForward;
+            }
+        }
+
         Org.Mozilla.Geckoview.GeckoView _view;
 
         protected override void Dispose(bool disposing)
@@ -76,6 +100,7 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Renderers
             _session.Open(_runtime);
             _session.ProgressDelegate = new ProgressDelegate(this);
             _session.ContentDelegate = new ContentDelegate(this);
+            _session.NavigationDelegate = new NavigationDelegate(this);
 
             return Tuple.Create(_session, _runtime);
         }
@@ -148,12 +173,28 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Renderers
 
         protected virtual void OnGoForwardRequested(object sender, EventArgs e)
         {
-            _view?.Session.GoForward();
+            if (Element == null)
+            {
+                return;
+            }
+
+            if (Element.CanGoForward)
+            {
+                _view?.Session.GoForward();
+            }
         }
 
         protected virtual void OnGoBackRequested(object sender, EventArgs e)
         {
-            _view?.Session.GoBack();
+            if (Element == null)
+            {
+                return;
+            }
+
+            if (Element.CanGoBack)
+            {
+                _view?.Session.GoBack();
+            }
         }
 
         protected virtual Task<string> OnEvaluateJavaScriptRequested(string script)
@@ -164,6 +205,11 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Renderers
         protected virtual void OnEvalRequested(object sender, EvalRequested e)
         {
             throw new NotImplementedException($"{nameof(OnEvalRequested)}: Javascript evaluation is not yet supported on GeckoView");
+        }
+
+        internal void ForwardSendNavigating(WebNavigatingEventArgs args)
+        {
+            Element.SendNavigating(args);
         }
 
         protected virtual void Load()

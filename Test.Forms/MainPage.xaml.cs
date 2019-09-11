@@ -17,12 +17,11 @@ namespace Xam.Droid.GeckoView.Test.Forms
             {
                 //Test for basic file download with download manager with no auth
                 Source = "https://www.google.fr"
-
-                //Test for WASM support
-                //Source = "https://lupblazorpaint.z20.web.core.windows.net/"
             };
             geckoForms.HorizontalOptions = LayoutOptions.FillAndExpand;
             geckoForms.VerticalOptions = LayoutOptions.FillAndExpand;
+
+            geckoForms.Navigating += GeckoForms_Navigating;
 
             stackLayout.Children.Add(geckoForms);
 
@@ -34,6 +33,19 @@ namespace Xam.Droid.GeckoView.Test.Forms
                     geckoForms.Source = "https://stackoverflow.com/";
                 });
             });
+        }
+
+        private void GeckoForms_Navigating(object sender, WebNavigatingEventArgs e)
+        {
+            //Should load Google France website, and should prevent Stackoverflow loading
+            if (e.Url.Contains("google.fr"))
+            {
+                e.Cancel = false;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
