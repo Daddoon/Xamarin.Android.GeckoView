@@ -27,7 +27,8 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Handlers
 
         public virtual GeckoResult OnLoadError(GeckoSession session, string uri, WebRequestError error)
         {
-            return GeckoResult.FromValue(null);
+            NavigatedEvent(session, uri, true);
+            return null;
         }
 
         public virtual GeckoResult OnLoadRequest(GeckoSession session, avigationDelegateClassLoadRequest request)
@@ -44,15 +45,53 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Handlers
                 navEvent = WebNavigationEvent.Refresh;
             }
 
-            var args = new WebNavigatingEventArgs(navEvent, new UrlWebViewSource { Url = request.Uri }, request.Uri);
+            WebViewSource source;
+            if (_renderer.Element != null && _renderer.Element.Source != null)
+            {
+                source = _renderer.Element.Source;
+            }
+            else
+            {
+                source = new UrlWebViewSource() { Url = request.Uri };
+            }
+
+            var args = new WebNavigatingEventArgs(navEvent, source, request.Uri);
             _renderer.ForwardSendNavigating(args);
 
             return args.Cancel ? GeckoResult.Deny : GeckoResult.Allow;
         }
 
+        private void NavigatedEvent(GeckoSession session, string url, bool isError)
+        {
+            WebViewSource source;
+            if (_renderer.Element != null && _renderer.Element.Source != null)
+            {
+                source = _renderer.Element.Source;
+            }
+            else
+            {
+                source = new UrlWebViewSource() { Url = url };
+            }
+
+            WebNavigationResult navigationResult;
+
+            if (isError)
+            {
+                navigationResult = WebNavigationResult.Failure;
+            }
+            else
+            {
+                navigationResult = WebNavigationResult.Success;
+            }
+
+            var args = new WebNavigatedEventArgs(WebNavigationEvent.NewPage, source, url, navigationResult);
+
+            _renderer.ForwardSendNavigated(args);
+        }
+
         public virtual void OnLocationChange(GeckoSession session, string url)
         {
-
+            NavigatedEvent(session, url, false);
         }
 
         public virtual GeckoResult OnNewSession(GeckoSession session, string uri)

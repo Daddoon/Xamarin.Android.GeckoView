@@ -37,14 +37,13 @@ namespace Xam.Droid.GeckoView.Test.Forms
 
         private void GeckoForms_Navigating(object sender, WebNavigatingEventArgs e)
         {
-            //Should load Google France website, and should prevent Stackoverflow loading
             if (e.Url.Contains("google.fr"))
             {
-                e.Cancel = false;
+                e.Cancel = true;
             }
             else
             {
-                e.Cancel = true;
+                e.Cancel = false;
             }
         }
     }

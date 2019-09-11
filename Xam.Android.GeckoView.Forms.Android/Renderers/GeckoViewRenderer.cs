@@ -212,6 +212,11 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Renderers
             Element.SendNavigating(args);
         }
 
+        internal void ForwardSendNavigated(WebNavigatedEventArgs args)
+        {
+            Element.SendNavigated(args);
+        }
+
         protected virtual void Load()
         {
             WebViewSource source = Element.Source;
