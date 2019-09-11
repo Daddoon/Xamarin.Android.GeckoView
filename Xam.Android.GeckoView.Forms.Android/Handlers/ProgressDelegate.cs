@@ -7,6 +7,7 @@ using Android.Runtime;
 using Org.Mozilla.Gecko;
 using Org.Mozilla.Geckoview;
 using Xam.Droid.GeckoView.Forms.Droid.Renderers;
+using Xamarin.Forms;
 using static Org.Mozilla.Geckoview.GeckoSession;
 
 namespace Xam.Droid.GeckoView.Forms.Droid.Handlers
@@ -27,14 +28,39 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Handlers
 
         public virtual void OnPageStart(GeckoSession session, string url)
         {
-            _currentURI = url;
-            _renderer.Element.SendNavigating(new Xamarin.Forms.WebNavigatingEventArgs(Xamarin.Forms.WebNavigationEvent.NewPage, _currentURI, _currentURI));
+        }
+
+        private void NavigatedEvent(GeckoSession session, string url, bool isError)
+        {
+            WebViewSource source;
+            if (_renderer.Element != null && _renderer.Element.Source != null)
+            {
+                source = _renderer.Element.Source;
+            }
+            else
+            {
+                source = new UrlWebViewSource() { Url = url };
+            }
+
+            WebNavigationResult navigationResult;
+
+            if (isError)
+            {
+                navigationResult = WebNavigationResult.Failure;
+            }
+            else
+            {
+                navigationResult = WebNavigationResult.Success;
+            }
+
+            var args = new WebNavigatedEventArgs(WebNavigationEvent.NewPage, source, url, navigationResult);
+
+            _renderer.ForwardSendNavigated(args);
         }
 
         public virtual void OnPageStop(GeckoSession session, bool success)
         {
-            var result = success ? Xamarin.Forms.WebNavigationResult.Success : Xamarin.Forms.WebNavigationResult.Failure;
-            _renderer.Element.SendNavigated(new Xamarin.Forms.WebNavigatedEventArgs(Xamarin.Forms.WebNavigationEvent.NewPage, _currentURI, _currentURI, result));
+            NavigatedEvent(session, _currentURI, !success);
         }
 
         public virtual void OnProgressChange(GeckoSession session, int progress)
