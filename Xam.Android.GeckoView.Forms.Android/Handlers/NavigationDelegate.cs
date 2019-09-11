@@ -25,10 +25,9 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Handlers
             _renderer.UpdateCanGoBackForward(null, canGoForward);
         }
 
-        public virtual GeckoResult OnLoadError(GeckoSession session, string uri, WebRequestError error)
+        public GeckoResult OnLoadError(GeckoSession session, string uri, WebRequestError error)
         {
-            NavigatedEvent(session, uri, true);
-            return null;
+            return GeckoResult.FromValue(null);
         }
 
         public virtual GeckoResult OnLoadRequest(GeckoSession session, avigationDelegateClassLoadRequest request)
@@ -61,37 +60,8 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Handlers
             return args.Cancel ? GeckoResult.Deny : GeckoResult.Allow;
         }
 
-        private void NavigatedEvent(GeckoSession session, string url, bool isError)
+        public void OnLocationChange(GeckoSession session, string url)
         {
-            WebViewSource source;
-            if (_renderer.Element != null && _renderer.Element.Source != null)
-            {
-                source = _renderer.Element.Source;
-            }
-            else
-            {
-                source = new UrlWebViewSource() { Url = url };
-            }
-
-            WebNavigationResult navigationResult;
-
-            if (isError)
-            {
-                navigationResult = WebNavigationResult.Failure;
-            }
-            else
-            {
-                navigationResult = WebNavigationResult.Success;
-            }
-
-            var args = new WebNavigatedEventArgs(WebNavigationEvent.NewPage, source, url, navigationResult);
-
-            _renderer.ForwardSendNavigated(args);
-        }
-
-        public virtual void OnLocationChange(GeckoSession session, string url)
-        {
-            NavigatedEvent(session, url, false);
         }
 
         public virtual GeckoResult OnNewSession(GeckoSession session, string uri)
