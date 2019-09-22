@@ -93,11 +93,28 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Renderers
             base.Dispose(disposing);
         }
 
-        public virtual Tuple<GeckoSession, GeckoRuntime> CreateNewSession()
+        /// <summary>
+        /// Override this method if you need to modify your new session behaviors, like adding different delegate on the session.
+        /// If needSessionOpening is set to "true" you will have to call your GeckoSession.Open method with the current GeckoRuntime in parameter.
+        /// You can get the current GeckoRuntime by calling GeckoRuntime.GetDefault(Context).
+        /// Otherwise you don't have to open the session. This is used for distinguish Session used at initialization, and the one that are called from
+        /// an event like 'OnNewSession' in NavigationDelegate, that must not be opened.
+        /// 
+        /// If we are initializing the component for the first time, the uri parameter value is "about:blank"
+        /// </summary>
+        /// <param name="needSessionOpening"></param>
+        /// <param name="uri"></param>
+        /// <returns></returns>
+        public virtual Tuple<GeckoSession, GeckoRuntime> CreateNewSession(bool needSessionOpening, string uri)
         {
             GeckoSession _session = new GeckoSession();
-            GeckoRuntime _runtime = GeckoRuntime.Create(Context);
-            _session.Open(_runtime);
+            GeckoRuntime _runtime = GeckoRuntime.GetDefault(Context);
+
+            if (needSessionOpening)
+            {
+                _session.Open(_runtime);
+            }
+
             _session.ProgressDelegate = new ProgressDelegate(this);
             _session.ContentDelegate = new ContentDelegate(this);
             _session.NavigationDelegate = new NavigationDelegate(this);
@@ -109,7 +126,8 @@ namespace Xam.Droid.GeckoView.Forms.Droid.Renderers
         {
             _view = new Org.Mozilla.Geckoview.GeckoView(Context);
 
-            var sessionObjects = CreateNewSession();
+            //Will return about:blank when called from initialization
+            var sessionObjects = CreateNewSession(true, "about:blank");
 
             var session = sessionObjects.Item1;
             var runtime = sessionObjects.Item2;
