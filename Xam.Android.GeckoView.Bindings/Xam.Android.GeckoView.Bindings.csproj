@@ -74,8 +74,7 @@
   <ItemGroup>
     <None Include="Jars\AboutJars.txt" />
     <None Include="Additions\AboutAdditions.txt" />
-    <LibraryProjectZip Include="Jars\geckoview-nightly-try-67.0.20190228011332.aar" />
-    <JavaDocJar Include="JavaDocs\geckoview-nightly-try-67.0.20190228011332-javadoc.jar" />
+    <LibraryProjectZip Include="Jars\geckoview-default-77.0.20200618130028.aar" />
   </ItemGroup>
   <ItemGroup>
     <TransformFile Include="Transforms\Metadata.xml" />
@@ -83,7 +82,10 @@
     <TransformFile Include="Transforms\EnumMethods.xml" />
   </ItemGroup>
   <ItemGroup>
-    <JavaSourceJar Include="JavaDocs\geckoview-nightly-try-67.0.20190228011332-sources.jar" />
+    <JavaDocJar Include="JavaDocs\geckoview-default-77.0.20200618130028-javadoc.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <JavaSourceJar Include="JavaDocs\geckoview-default-77.0.20200618130028-sources.jar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
